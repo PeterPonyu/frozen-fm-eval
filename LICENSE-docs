@@ -1,0 +1,6 @@
+The documentation, figures, result tables, and reports in this repository
+(everything under reports/, results-summary/, figures/figs/, and all Markdown
+files) are licensed under the Creative Commons Attribution 4.0 International
+License (CC-BY-4.0): https://creativecommons.org/licenses/by/4.0/
+
+Source code (all *.py and *.R files) is licensed under the MIT License; see LICENSE.

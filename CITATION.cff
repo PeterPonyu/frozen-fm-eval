@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this evaluation protocol, please cite the archived release."
+title: "Frozen-FM-Eval: a leakage-controlled, calibration-aware evaluation protocol for frozen foundation-model embeddings"
+repository-code: "https://github.com/PeterPonyu/frozen-fm-eval"
+authors:
+  - family-names: Fu
+    given-names: Zeyu
+    orcid: "https://orcid.org/0009-0001-8329-0108"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21071827
+    description: Versioned archive of code, result tables, and audit outputs
+license: MIT
+year: 2026

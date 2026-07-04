@@ -1,0 +1,25 @@
+# Large data / model artifacts live on Zenodo, not GitHub
+*.h5ad
+*.npz
+*.npy
+*.parquet
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+# Embedding / working directories (Zenodo-archived)
+fm_emb/
+labeled_raw/
+uce_work/
+spatial_emb/
+raw_pulls/
+# Vendored third-party foundation-model code (obtain from each model's own repo)
+scf_repo/
+uce_repo/
+cellplm_repo/
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+# Logs
+*.log
