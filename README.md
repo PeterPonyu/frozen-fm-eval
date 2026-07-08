@@ -2,7 +2,7 @@
 
 A leakage-controlled, calibration-aware evaluation protocol for **frozen foundation-model (FM) embeddings** under distribution shift, with single-cell genomics as the stress-test domain.
 
-This repository holds the **evaluation-framework code and protocol** behind the paper *"Auditing Frozen Foundation-Model Embeddings: A Leakage-Controlled, Calibration-Aware Evaluation Protocol Stress-Tested on Single-Cell Genomics"* (Zeyu Fu). Manuscript-specific material — result tables, figures and figure-generation scripts, and audit outputs — is not included here; it is deposited on Zenodo: [10.5281/zenodo.21071827](https://doi.org/10.5281/zenodo.21071827).
+This repository holds the **evaluation-framework code and protocol** behind the paper *"Auditing Frozen Foundation-Model Embeddings: A Leakage-Controlled, Calibration-Aware Evaluation Protocol Stress-Tested on Single-Cell Genomics"* (Zeyu Fu). Manuscript-specific material — result tables, figures and figure-generation scripts, and audit outputs — is not included here; it is deposited on Zenodo: [10.5281/zenodo.21071826](https://doi.org/10.5281/zenodo.21071826).
 
 ## What this is
 
@@ -35,13 +35,15 @@ Script families (see PROTOCOL.md for the full map):
 
 Scripts assume a Python environment with `numpy`, `scipy`, `scikit-learn`, `scanpy`, `pandas`, and the conformal libraries [`crepes`](https://github.com/henrikbostrom/crepes) and [`MAPIE`](https://github.com/scikit-learn-contrib/MAPIE). Foundation-model inference runs in an isolated environment and requires each model's own weights and code (obtain from each model's public repository — vendored copies are **not** redistributed here). Large inputs and embeddings are on Zenodo; each script reads/writes the paths documented in its header and is deterministic under a fixed seed.
 
+**Environment used for the paper's results:** Ubuntu 24.04 LTS (Linux 6.17), Python 3.13, an Intel Core Ultra 9 275HX CPU (24 cores) with 62 GB RAM, and one NVIDIA GeForce RTX 5090 Laptop GPU (24 GB); a single workstation, no cluster/cloud. Exact package versions are captured in the provenance manifest in the Zenodo archive.
+
 ### Paths
 
 These scripts were run against a fixed local data layout and carry **hardcoded absolute paths** (e.g. a `.../data/datasets/…` root for the atlases and a `.../data/models/…` root for FM weights) at the top of each file. To reproduce, either recreate that layout or edit the path constants in the header of each script to point at your own copies of the public datasets (GEO `GSE174367`, the CosMx lymph-node release) and model weights. The paths are the only machine-specific state; the analysis itself is deterministic.
 
 ## Data availability
 
-- **Evaluation-framework code + protocol:** this repo. **Result tables, figures, figure-generation scripts, and audit outputs:** the Zenodo archive [10.5281/zenodo.21071827](https://doi.org/10.5281/zenodo.21071827).
+- **Evaluation-framework code + protocol:** this repo. **Result tables, figures, figure-generation scripts, and audit outputs:** the Zenodo archive [10.5281/zenodo.21071826](https://doi.org/10.5281/zenodo.21071826).
 - **Primary data (public):** snATAC atlas of Morabito et al. (GEO `GSE174367`); a CosMx human lymph-node dataset from the spatial-benchmark release; FM weights from each model's public repository.
 - **External per-comparison tables** are reused from each cited study's public release (metric values only) and are not redistributed.
 
