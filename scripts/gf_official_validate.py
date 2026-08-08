@@ -10,8 +10,8 @@ os.chdir(os.path.join(os.path.dirname(__file__), ".."))
 # Official geneformer source (code only; weights/dicts are already local). Fetch once with:
 #   GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/ctheodoris/Geneformer $GF_SRC
 GFREPO = os.environ.get("GF_SRC", os.path.expanduser("~/geneformer_src"))
-GFDICTS = ".../data/models/Geneformer/geneformer"   # real LFS dicts
-MDL = ".../data/models/Geneformer/Geneformer-V2-104M"
+GFDICTS = "/home/zeyufu/Desktop/data/models/Geneformer/geneformer"   # real LFS dicts
+MDL = "/home/zeyufu/Desktop/data/models/Geneformer/Geneformer-V2-104M"
 
 # ---- module-hack: stand up minimal geneformer package so official tokenizer.py imports ----
 sys.modules["loompy"] = types.ModuleType("loompy")                  # not used (h5ad path)

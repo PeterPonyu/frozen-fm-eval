@@ -1,0 +1,22 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.9in]{geometry}\usepackage{hyperref}\pagestyle{empty}
+\setlength{\parskip}{0.30em}\setlength{\parindent}{0pt}
+\begin{document}
+\noindent The Editors\\ \emph{PeerJ Computer Science}\hfill 23 July 2026
+
+\textbf{Re:} \emph{Auditing Frozen Foundation-Model Embeddings: A Leakage-Controlled, Calibration-Aware Evaluation Protocol Stress-Tested on Single-Cell Genomics}
+
+Dear Editors,
+
+I am the sole author of this manuscript and a reclassification to \textbf{AI Application} in \emph{PeerJ Computer Science} is welcome. The AI technique is a reusable evaluation protocol for frozen neural representations; the application is single-cell genomics. \textbf{Need:} foundation models are deployed as frozen feature extractors and ranked on leaderboards, yet the yardsticks are entangled with the methods they rank---agreement metrics presuppose a ground truth derived in the space they grade (label circularity), tokenizer coverage is confounded with representation quality, and the exchangeability underwriting conformal guarantees breaks under distribution shift. \textbf{Practical problem:} practitioners cannot tell whether a frozen embedding is safe to deploy under the batch/donor/species shift endemic to real data; the protocol turns that judgment into a falsifiable, reproducible audit. \textbf{Improvement over current practice:} every agreement metric is paired with a non-linear probe and a reference-free structure metric to expose circularity; tokenizer coverage becomes a measured variable rather than an assumption; parity is argued by equivalence testing (TOST) rather than an absent $p$-value; and a reliability axis (split-conformal coverage, ECE, selective abstention) is added where none existed---no calibration or conformal audit of any scATAC foundation model previously existed. \textbf{Comparison to existing methods} is explicit throughout: linear vs.\ non-linear probes, PCA vs.\ foundation-model clustering, and the criticized method class is placed \emph{on} a dose--response curve against its own confound rather than given a binary verdict. The framing is domain-general; the Discussion states how the instrument ports to other domains by naming only the shift covariate and a label-independent structure metric.
+
+This is not a simple application or cross-evaluation of existing tools: the need for the protocol, and the limitations of both the audited models and the audit's own evaluation choices, are argued at length (\S~``Limitations'' stress-tests the probe family, margin, and atlas set of the re-check itself, offering it as falsifiable rather than final). The deliverable is a portable instrument and a methodological improvement over leaderboard practice, not a table of win/loss verdicts.
+
+Every result is deterministic under a fixed seed and independently reproducible. Framework code: \url{https://github.com/PeterPonyu/frozen-fm-eval}; full reproducibility archive (provenance manifest with SHA-256 hashes of every result table and script, plus the captured runtime environment) under Zenodo concept DOI \href{https://doi.org/10.5281/zenodo.21071826}{10.5281/zenodo.21071826}. All primary datasets are public, and every claim is scoped to the zero-shot, frozen-embedding regime. An AI assistant was used only for limited code refactoring and language editing; all AI-assisted content was critically reviewed and verified by me.
+
+This work is original, unpublished, and not under consideration elsewhere. The single authorship is intentional: I conceived and designed the study, performed the experiments and analyses, prepared the figures and tables, wrote the manuscript, reviewed and verified the code and all AI-assisted content, and take full responsibility for the work. No other person meets PeerJ's authorship criteria, and no contributor has been omitted. There are no competing interests. I suggest the subject areas \emph{Artificial Intelligence}, \emph{Data Science}, and \emph{Bioinformatics}.
+
+Thank you for your consideration.
+
+Sincerely,\\ Zeyu Fu\\ Army Medical University, Chongqing, China\\ \href{mailto:fuzeyu99@126.com}{fuzeyu99@126.com} \ $\cdot$ \ ORCID 0009-0001-8329-0108
+\end{document}

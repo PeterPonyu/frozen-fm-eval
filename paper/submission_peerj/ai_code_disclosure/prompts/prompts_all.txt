@@ -1,0 +1,72 @@
+
+
+Prompt 1: 01_modularize_fair_eval.md
+
+I have working research scripts that compare linear and kNN probes, expression-variance structure, and FM-versus-expression reliability across atlases. Refactor them for the release archive:
+
+- extract repeated class filtering, held-out-batch selection, macro-AUROC, ECE, and conformal helpers into a small `common/` package;
+- replace machine-local paths with `DATA_ROOT` or command-line roots;
+- add `argparse` flags for `--data-root`, `--results-dir`, and `--seed`, plus an optional atlas selector for focused parity checks;
+- preserve seed 20260623, PCA and K-means random states, class and batch thresholds, atlas and representation lists, rounding, and output JSON fields;
+- preserve the order of random-number draws in `fm_vs_baseline_raw.py`;
+- do not add probes, models, datasets, or statistics.
+
+Return the two refactored drivers and only the shared modules they require.
+
+------------------------------------------------------------------------
+
+Prompt 2: 02_harden_dose_response.md
+
+Refactor `batch_shift_dose_response.py` to use the shared metric and split utilities. Keep the scientific procedure unchanged:
+
+- retain the usable-atlas filter from `atlas_manifest.json` and the exact held-out batch stored in `multiatlas_baseline.json`;
+- retain the per-atlas `RandomState(20260623)` subsample, 6,000-cell cap, rare-class threshold, half-training fit subset, HVG selection, PCA settings, and five-fold batch-membership AUROC;
+- keep the primary PCA-logistic, pooled four-PCA-method, and independent HVG-logistic correlations, including Spearman/Pearson calculations and output names;
+- resolve atlas directories below `--data-root` and add `--results-dir` and `--seed`;
+- add a short module docstring explaining the exchangeability and coverage-gap hypothesis.
+
+Do not introduce new statistics or change rounding.
+
+------------------------------------------------------------------------
+
+Prompt 3: 03_scatac_audit_refactor.md
+
+Clean up `scatac_audit.py` for the reproducibility archive. Reuse the common ECE and LAC conformal helpers where their formulas match the scRNA audits. Keep the leakage-controlled protocol exactly as implemented:
+
+- preserve the sample-level train/calibration/test split and the Control-to-AD split;
+- preserve seed 20260623, target alpha 0.10, logistic-regression settings, negative controls, residualized confidence-correctness correlation, selective-risk calculations, and 2,000 bootstrap replicates;
+- do not reorder random draws;
+- add `--data-root`, `--results-dir`, and `--seed` flags consistent with the other drivers;
+- write strict JSON without changing output keys or rounding;
+- scrub machine-specific run instructions or paths.
+
+Do not add metrics or reinterpret the result.
+
+------------------------------------------------------------------------
+
+Prompt 4: 04_normalize_pipeline.md
+
+`normalize.py` pools heterogeneous external benchmark tables into one long table. Prepare it for the release archive:
+
+1. Keep `family_of`, the `HIB` direction map, `metric_family`, source allowlists, grouping, and all seven ingestion blocks unchanged.
+2. Keep the output column order and the `sources_provenance.csv` calculation unchanged.
+3. Add a schema-focused module docstring and make the raw-pull and output roots configurable with `argparse`.
+4. Accept the common `--data-root`, `--results-dir`, and `--seed` interface, while stating that this normalization has no stochastic operation.
+5. Preserve missing-file behavior and optional Parquet output.
+
+Do not reclassify methods or metrics and do not add source tables.
+
+------------------------------------------------------------------------
+
+Prompt 5: 05_provenance_and_io.md
+
+Replace my ad-hoc `provenance_check.py` with a release-oriented `provenance_manifest.py` using `common.provenance`:
+
+- hash each selected result-summary JSON and first-party Python script with SHA-256;
+- store portable paths, byte counts, UTC modification times, environment versions, and result/script counts;
+- add `--check` mode that fails on missing files or hash mismatches;
+- add `--data-root`, `--results-dir`, `--scripts-dir`, `--manifest`, and the common `--seed` option (document that hashing is deterministic);
+- move path resolution, legacy seed construction, JSON loading, and NaN-safe strict JSON writing into `common.io_utils`;
+- replace the scripts' `json.dump` monkey patches with the shared writer while preserving JSON schemas and indentation choices.
+
+Do not change which analyses produce the result tables and do not include raw data or model files in the manifest.

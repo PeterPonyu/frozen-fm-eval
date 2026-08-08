@@ -1,0 +1,41 @@
+% Argument roadmap (hand-authored TikZ): numbered finding badges, trimmed text.
+{\hyphenpenalty=10000\exhyphenpenalty=10000\relax
+% numbered badge pictogram for the three findings (drawn in the findings colour)
+\def\fbadge#1{\tikz[baseline=-3pt]{\node[circle,fill=cFind,text=white,inner sep=0pt,minimum size=8.5pt,font=\scriptsize\bfseries]{#1};}}
+\begin{tikzpicture}[font=\footnotesize,>=Stealth,
+  base/.style={rounded corners=4pt,align=center,text width=8.0cm,inner sep=6pt,
+               drop shadow={shadow xshift=1pt,shadow yshift=-1pt,opacity=0.18}},
+  q/.style={base,draw=black!45,fill=black!4},
+  f/.style={base,draw=cFind!75,line width=0.7pt,fill=cFind!5},
+  cc/.style={base,draw=cEval!75,line width=0.9pt,fill=cEval!8},
+  art/.style={rounded corners=4pt,draw=cBase!75,line width=0.6pt,fill=cBase!8,align=left,text width=3.5cm,inner sep=5pt,
+              drop shadow={shadow xshift=1pt,shadow yshift=-1pt,opacity=0.18}},
+  probe/.style={rounded corners=4pt,draw=cBase!75,fill=cBase!8,align=center,text width=2.5cm,inner sep=4pt,font=\scriptsize,
+                drop shadow={shadow xshift=0.8pt,shadow yshift=-0.8pt,opacity=0.16}},
+  ed/.style={-{Stealth[length=5pt,width=5pt]},line width=1.2pt,draw=black!40},
+  lbl/.style={font=\scriptsize\itshape,text=black!55,fill=white,inner sep=1pt}]
+\node[q] (Q) {Two camps: \emph{simple beats FM} (skeptics) vs.\ \emph{FM wins} (boosters) --- leaderboards can't adjudicate};
+\node[f,below=11mm of Q] (F1) {{\fbadge{1}}~\textbf{Parity} --- no advantage, no deficit ($=$ PCA on matched atlases; $+0.0025$, $\pm0.02$)};
+\node[f,below=8mm of F1] (F2) {{\fbadge{2}}~\textbf{General collapse} --- an exchangeability failure, not FM-specific ($\rho{=}0.82$; scATAC flat)};
+\node[f,below=8mm of F2] (F3) {{\fbadge{3}}~\textbf{Not scale} --- set by task and metric, not model size ($104{\to}316$M: no effect)};
+\node[cc,below=7mm of F3] (CC) {\textbf{Deliverable} --- a reusable, falsifiable evaluation instrument, not a verdict on FMs};
+\node[art,right=7mm of F1.east,anchor=west,yshift=-6mm] (A) {\textbf{the apparent win isn't real}\\[3pt]
+  $\bullet$ label circularity (20/20)\\[3pt]
+  $\bullet$ vocabulary threshold (causal)};
+\node[probe,left=7mm of F1.west,anchor=east] (P1) {dose--response \#1\\ \textbf{vocabulary}};
+\node[probe,left=7mm of F2.west,anchor=east] (P2) {dose--response \#2\\ \textbf{batch-shift}};
+\node[probe,left=7mm of F3.west,anchor=east] (P3) {dose--response \#3\\ \textbf{spatial}};
+\draw[ed] (Q) -- node[lbl,fill=white,inner sep=2pt]{fair re-check ($k$NN $+$ ref-free $R^2_{\mathrm{expr}}$)} (F1);
+\draw[ed] (F1) -- (F2); \draw[ed] (F2) -- (F3); \draw[ed] (F3) -- (CC);
+\draw[ed,draw=cBase!70] (A.west |- F1.east) -- (F1.east);
+\draw[ed,draw=cBase!70,dashed] (P1.east) -- (F1.west);
+\draw[ed,draw=cBase!70,dashed] (P2.east) -- (F2.west);
+\draw[ed,draw=cBase!70,dashed] (P3.east) -- (F3.west);
+% A in fig0_overview is the leftmost element of its own picture, so its xshift is
+% re-flushed away by the \makebox and cannot move A's page x (why the last A-side fix
+% did nothing). B, by contrast, is anchored at the probe-box (P1--P3) left edge, which
+% stays the bbox min-x, so a positive xshift moves B's page x by that exact amount.
+% Visual measurement: A landed 11.3pt RIGHT of B, so push B right 11.3pt to form a
+% clean vertical A/B column.
+\node[anchor=south west,font=\normalsize\bfseries] at ([xshift=11.3pt,yshift=2pt]current bounding box.north west) {B};
+\end{tikzpicture}}

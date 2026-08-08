@@ -8,7 +8,7 @@ os.environ.pop("ALL_PROXY",None); os.environ.pop("all_proxy",None)
 sys.path.insert(0, os.path.join(os.path.dirname(__file__),"scf_repo"))
 import mae_autobin, transformer  # standalone modules (no package __init__ -> no performer import)
 
-CKPT=".../data/models/scFoundation-cell/model.pt"
+CKPT="/home/zeyufu/Desktop/data/models/scFoundation-cell/model.pt"
 GIDX="expand_results/scf_gene_index.tsv"
 PFX=os.environ.get("SCF_PREFIX","scf"); POOL=os.environ.get("SCF_POOL","all")
 dev="cuda" if torch.cuda.is_available() else "cpu"
@@ -100,9 +100,9 @@ def embed(adata, ctcol, bcol, out):
     np.savez(out, X=embs, y=a.obs[ctcol].astype(str).values, batch=a.obs[bcol].astype(str).values)
     print("SAVED",out,embs.shape,flush=True)
 
-ATL=[(".../data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident",f"{PFX}_GSE130148_lung"),
-     (".../data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch",f"{PFX}_GSE165784_retina"),
-     (".../data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch",f"{PFX}_lung24k")]
+ATL=[("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident",f"{PFX}_GSE130148_lung"),
+     ("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch",f"{PFX}_GSE165784_retina"),
+     ("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch",f"{PFX}_lung24k")]
 os.makedirs("expand_results/fm_emb",exist_ok=True)
 import glob as _glob
 if len(sys.argv)>1 and sys.argv[1]=="labeled_raw":

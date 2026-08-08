@@ -9,7 +9,7 @@ import os, sys, json, gzip, types, importlib.util, numpy as np, pandas as pd, an
 import warnings; warnings.filterwarnings("ignore")
 os.chdir(os.path.join(os.path.dirname(__file__), ".."))
 GENIML = os.environ.get("GENIML_SRC", os.path.expanduser("~/geniml_src"))
-CK = ".../data/models/atacformer-base-hg38"
+CK = "/home/zeyufu/Desktop/data/models/atacformer-base-hg38"
 SEED = 20260623; N_CELLS = 20000; MAXLEN = 4096; B = 16; torch.manual_seed(SEED)
 dev = "cuda" if torch.cuda.is_available() else "cpu"
 c = json.load(open(f"{CK}/config.json")); D, H, L, FF = c["hidden_size"], c["num_attention_heads"], c["num_hidden_layers"], c["intermediate_size"]

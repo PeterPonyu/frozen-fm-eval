@@ -3,7 +3,7 @@
 # ->per-cell 51-bin quantile value-binning; input=<cls>+expressed genes; cell emb=<cls> token, L2.
 import os, sys, json, glob, numpy as np, anndata as ad, scipy.sparse as sp, torch, torch.nn as nn
 os.environ.pop("ALL_PROXY",None); os.environ.pop("all_proxy",None)
-CK=".../data/models/scGPT-human"; dev="cuda" if torch.cuda.is_available() else "cpu"
+CK="/home/zeyufu/Desktop/data/models/scGPT-human"; dev="cuda" if torch.cuda.is_available() else "cpu"
 vocab=json.load(open(f"{CK}/vocab.json")); args=json.load(open(f"{CK}/args.json"))
 PAD=vocab[args["pad_token"]]; CLS=vocab.get("<cls>", vocab.get("<CLS>")); NTOK=len(vocab)
 D=args["embsize"]; H=args["nheads"]; L=args["nlayers"]; FF=args["d_hid"]; NBIN=args.get("n_bins",51); MAXLEN=1200
@@ -57,9 +57,9 @@ def embed(adata, ct, bt, out):
         if s%(B*40)==0: print("  ",out,s,"/",n,flush=True)
     np.savez(out, X=embs, y=adata.obs[ct].astype(str).values, batch=adata.obs[bt].astype(str).values); print("SAVED",out,embs.shape,flush=True)
 os.makedirs("expand_results/fm_emb",exist_ok=True)
-ATL=[(".../data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident","scgpt_GSE130148_lung"),
-     (".../data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch","scgpt_GSE165784_retina"),
-     (".../data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch","scgpt_lung24k")]
+ATL=[("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident","scgpt_GSE130148_lung"),
+     ("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch","scgpt_GSE165784_retina"),
+     ("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch","scgpt_lung24k")]
 for f in sorted(glob.glob("expand_results/labeled_raw/*.h5ad")):
     nm=os.path.basename(f)[:-5]; ATL.append((f,"cell_type","batch",f"scgpt_lr_{nm}"))
 print("scGPT atlases:",len(ATL),flush=True)

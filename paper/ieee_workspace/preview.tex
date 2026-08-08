@@ -1,0 +1,23 @@
+\documentclass[journal]{IEEEtran}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,fit,arrows.meta,backgrounds,calc,shapes.geometric,shadows}
+\usepackage[a4paper,margin=6mm]{geometry}
+\newlength{\FW}\setlength{\FW}{7.0in}
+\newcommand{\showfig}[1]{%
+  \par\noindent\rule{\FW}{0.4pt}\\[-1pt]
+  {\ttfamily\scriptsize #1}\\[2pt]
+  \fbox{\resizebox{\FW}{!}{\input{figs/#1.tex}}}\par\clearpage}
+\begin{document}
+\pagestyle{empty}
+\showfig{figScontext_ieee}
+\showfig{figSreliabK_ieee}
+\showfig{figfair_ieee}
+\showfig{figspatial_ieee}
+\showfig{figSnaive_ieee}
+\showfig{fig_scatac_ieee}
+\showfig{fig15_batch_dose_ieee}
+\showfig{fig11_perturbation_ieee}
+\end{document}

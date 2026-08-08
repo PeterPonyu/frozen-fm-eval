@@ -11,9 +11,9 @@ from sklearn.metrics import roc_auc_score
 rng=np.random.RandomState(20260623); EMB="expand_results/fm_emb"
 FMNAME={"gf":"Geneformer-V2-104M","gf316":"Geneformer-V2-316M","scgpt":"scGPT","scf":"scFoundation","cellplm":"CellPLM","uce":"UCE"}
 LR={os.path.basename(f)[:-5]:f for f in glob.glob("expand_results/labeled_raw/*.h5ad")}
-ATL=[("GSE130148_lung",".../data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident"),
-     ("GSE165784_retina",".../data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch"),
-     ("lung24k",".../data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch")]
+ATL=[("GSE130148_lung","/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident"),
+     ("GSE165784_retina","/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch"),
+     ("lung24k","/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch")]
 for nm,f in sorted(LR.items()): ATL.append(("lr_"+nm,f,"cell_type","batch"))
 # Data-driven gene-naming classification (replaces the earlier hand-curated MOUSE set, which
 # mislabelled 3 mouse-symbol atlases -- lung24k, lr_breast_hm, lr_tcell_cancer -- as "human").

@@ -7,7 +7,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler, label_binarize
 from sklearn.metrics import roc_auc_score
 from scipy.stats import spearmanr
-CK=".../data/models/scGPT-human"; dev="cuda" if torch.cuda.is_available() else "cpu"
+CK="/home/zeyufu/Desktop/data/models/scGPT-human"; dev="cuda" if torch.cuda.is_available() else "cpu"
 vocab=json.load(open(f"{CK}/vocab.json")); args=json.load(open(f"{CK}/args.json"))
 PAD=vocab[args["pad_token"]]; CLS=vocab.get("<cls>", vocab.get("<CLS>")); NTOK=len(vocab)
 D=args["embsize"]; H=args["nheads"]; L=args["nlayers"]; FF=args["d_hid"]; NBIN=args.get("n_bins",51); MAXLEN=1200
@@ -63,7 +63,7 @@ def knn_auroc(Z,y,tr,te,NC):
     yb=label_binarize(y[te],classes=range(NC)); pr=[k for k in range(NC) if 0<yb[:,k].sum()<len(yb)]
     return float(roc_auc_score(yb[:,pr],P[:,pr],average="macro")) if pr else float("nan")
 LR={os.path.basename(f)[:-5]:f for f in glob.glob("expand_results/labeled_raw/*.h5ad")}
-ATLASES=[("GSE130148_lung",".../data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident"),
+ATLASES=[("GSE130148_lung","/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident"),
          ("lr_stomach_cancer",LR.get("stomach_cancer"),"cell_type","batch"),
          ("lr_gastric",LR.get("gastric"),"cell_type","batch")]
 FRACS=[1.0,0.8,0.6,0.4,0.25,0.15,0.08,0.04,0.0]

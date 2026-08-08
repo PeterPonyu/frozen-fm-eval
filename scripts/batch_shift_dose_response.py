@@ -15,9 +15,9 @@ from sklearn.metrics import roc_auc_score
 from scipy.stats import spearmanr, pearsonr
 man=json.load(open("expand_results/atlas_manifest.json"))
 DIRS={os.path.basename(d):d for d in [
- ".../data/datasets/extra_preprocessed",".../data/datasets/CancerDatasets",
- ".../data/datasets/CancerDatasets2",".../data/datasets/DevelopmentDatasets",
- ".../data/datasets/DevelopmentDatasets2"]}
+ "/home/zeyufu/Desktop/data/datasets/extra_preprocessed","/home/zeyufu/Desktop/data/datasets/CancerDatasets",
+ "/home/zeyufu/Desktop/data/datasets/CancerDatasets2","/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets",
+ "/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2"]}
 usable=[r for r in man if r.get("usable")]; NCELL=6000
 GAP={r["atlas"]:r for r in json.load(open("expand_results/multiatlas_baseline.json"))}
 

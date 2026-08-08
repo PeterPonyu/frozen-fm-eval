@@ -16,8 +16,8 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__),"cellplm_repo"))
 import torch
 from CellPLM.pipeline.cell_embedding import CellEmbeddingPipeline
 
-DIR=os.environ.get("CELLPLM_DIR",".../data/models/CellPLM"); PREFIX="20230926_85M"
-GF=".../data/models/Geneformer/geneformer"
+DIR=os.environ.get("CELLPLM_DIR","/home/zeyufu/Desktop/data/models/CellPLM"); PREFIX="20230926_85M"
+GF="/home/zeyufu/Desktop/data/models/Geneformer/geneformer"
 N2I=pickle.load(open(f"{GF}/gene_name_id_dict_gc104M.pkl","rb"))  # gene SYMBOL -> Ensembl ID
 dev="cuda" if torch.cuda.is_available() else "cpu"
 PFX=os.environ.get("CELLPLM_PREFIX","cellplm")
@@ -40,9 +40,9 @@ def embed(adata, ctcol, bcol, out):
     np.savez(out, X=X, y=adata.obs[ctcol].astype(str).values, batch=adata.obs[bcol].astype(str).values)
     print("SAVED",out,X.shape,flush=True)
 
-ATL=[(".../data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident",f"{PFX}_GSE130148_lung"),
-     (".../data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch",f"{PFX}_GSE165784_retina"),
-     (".../data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch",f"{PFX}_lung24k")]
+ATL=[("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident",f"{PFX}_GSE130148_lung"),
+     ("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch",f"{PFX}_GSE165784_retina"),
+     ("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch",f"{PFX}_lung24k")]
 os.makedirs("expand_results/fm_emb",exist_ok=True)
 if len(sys.argv)>1 and sys.argv[1]=="labeled_raw":
     ATL=[(f,"cell_type","batch",f"{PFX}_lr_"+os.path.basename(f)[:-5]) for f in sorted(_glob.glob("expand_results/labeled_raw/*.h5ad"))]

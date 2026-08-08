@@ -1,0 +1,16 @@
+Subject: Final PeerJ submission files and AI-in-code disclosure materials
+
+Dear Editor and PeerJ Staff,
+
+Please find the final submission files for my manuscript, "Auditing frozen foundation-model embeddings: a leakage-controlled, calibration-aware evaluation protocol stress-tested on single-cell genomics."
+
+The single authorship is intentional. I conceived and designed the study, performed the experiments and analyses, prepared the figures and tables, wrote the manuscript, reviewed and verified the code and all AI-assisted content, and take full responsibility for the work. No other person meets PeerJ's authorship criteria, no contributor has been omitted, and I declare no competing interests.
+
+An AI assistant was used for limited code refactoring and language editing. The corresponding disclosure materials provide code before and after the assisted editing and representative prompts documenting the edits. I reviewed, tested, and verified all AI-assisted content and take full responsibility for it.
+
+The final article package contains the manuscript, 16 separately uploaded vector-PDF figures, the cover letter, a reproducibility archive, and the three AI-in-computer-code disclosure files.
+
+The public reproducibility release remains available through Zenodo concept DOI 10.5281/zenodo.21071826, and the maintained evaluation framework is available at https://github.com/PeterPonyu/frozen-fm-eval.
+
+Sincerely,
+Zeyu Fu

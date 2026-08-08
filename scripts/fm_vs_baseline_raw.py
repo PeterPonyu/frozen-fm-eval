@@ -65,11 +65,11 @@ def audit_rep(Z,y_raw,b,label):
     return dict(rep=label,n=int(len(y)),n_ct=int(len(classes)),test_batch=str(tb),
         xb_auroc=auroc,ece=ece(P,pred,y[te]),cov_xb=cov_xb,cov_rnd=cov_rnd,cov_gap=float(cov_rnd-cov_xb),
         acc_full=float(accuracy_score(y[te],pred)),acc_at80=float(accuracy_score(y[te][kp],pred[kp])))
-ATL=[("GSE130148_lung",".../data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident",
+ATL=[("GSE130148_lung","/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident",
       "expand_results/fm_emb/gf_GSE130148_lung.npz","expand_results/fm_emb/scgpt_GSE130148_lung.npz"),
-     ("GSE165784_retina",".../data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch",
+     ("GSE165784_retina","/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch",
       "expand_results/fm_emb/gf_GSE165784_retina.npz","expand_results/fm_emb/scgpt_GSE165784_retina.npz"),
-     ("lung24k",".../data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch",
+     ("lung24k","/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch",
       "expand_results/fm_emb/gf_lung24k.npz","expand_results/fm_emb/scgpt_lung24k.npz")]
 import glob as _glob
 for _f in sorted(_glob.glob("expand_results/labeled_raw/*.h5ad")):
