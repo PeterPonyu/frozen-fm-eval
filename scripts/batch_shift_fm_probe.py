@@ -21,9 +21,9 @@ def naming_of(A):
     if sum(1 for x in vn[:300] if x.startswith("ENSG"))>50: return "human-ensembl"
     return "mouse"
 LR={os.path.basename(f)[:-5]:f for f in glob.glob("expand_results/labeled_raw/*.h5ad")}
-ATL=[("GSE130148_lung",".../data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident"),
-     ("GSE165784_retina",".../data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch"),
-     ("lung24k",".../data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch")]
+ATL=[("GSE130148_lung","/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident"),
+     ("GSE165784_retina","/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch"),
+     ("lung24k","/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch")]
 for nm,f in sorted(LR.items()): ATL.append(("lr_"+nm,f,"cell_type","batch"))
 
 def ece(P,pred,y,B=15):

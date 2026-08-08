@@ -25,9 +25,9 @@ from scipy.special import softmax
 rng=np.random.RandomState(20260623)
 man=json.load(open("expand_results/atlas_manifest.json"))
 DIRS={os.path.basename(d):d for d in [
- ".../data/datasets/extra_preprocessed",".../data/datasets/CancerDatasets",
- ".../data/datasets/CancerDatasets2",".../data/datasets/DevelopmentDatasets",
- ".../data/datasets/DevelopmentDatasets2"]}
+ "/home/zeyufu/Desktop/data/datasets/extra_preprocessed","/home/zeyufu/Desktop/data/datasets/CancerDatasets",
+ "/home/zeyufu/Desktop/data/datasets/CancerDatasets2","/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets",
+ "/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2"]}
 usable=[r for r in man if r.get("usable")]; NCELL=6000
 def ece(P,pred,y,B=15):
     conf=P.max(1); acc=(pred==y).astype(float); bins=np.linspace(0,1,B+1); e=0.

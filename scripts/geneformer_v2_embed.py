@@ -5,7 +5,7 @@ os.environ.pop("ALL_PROXY",None); os.environ.pop("all_proxy",None)
 import sys, types
 sys.modules['torchvision']=None  # mark torchvision unavailable (ABI clash w/ torch2.9) so transformers skips it
 from transformers.models.bert.modeling_bert import BertModel
-GF=".../data/models/Geneformer"; MDL=os.environ.get("GF_MODEL_DIR",f"{GF}/Geneformer-V2-104M"); DCT=f"{GF}/geneformer"
+GF="/home/zeyufu/Desktop/data/models/Geneformer"; MDL=os.environ.get("GF_MODEL_DIR",f"{GF}/Geneformer-V2-104M"); DCT=f"{GF}/geneformer"
 PFX=os.environ.get("GF_PREFIX","gf")
 INPUT=2048; dev="cuda" if torch.cuda.is_available() else "cpu"
 tok=pickle.load(open(f"{DCT}/token_dictionary_gc104M.pkl","rb"))
@@ -46,9 +46,9 @@ def embed(adata, ctcol, bcol, out):
         if s % (B*40)==0: print("  ",out,s,"/",n,flush=True)
     np.savez(out, X=embs, y=a.obs[ctcol].astype(str).values, batch=a.obs[bcol].astype(str).values)
     print("SAVED",out,embs.shape,flush=True)
-ATL=[(".../data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident",f"{PFX}_GSE130148_lung"),
-     (".../data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch",f"{PFX}_GSE165784_retina"),
-     (".../data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch",f"{PFX}_lung24k")]
+ATL=[("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident",f"{PFX}_GSE130148_lung"),
+     ("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch",f"{PFX}_GSE165784_retina"),
+     ("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch",f"{PFX}_lung24k")]
 os.makedirs("expand_results/fm_emb",exist_ok=True)
 import glob as _glob
 if len(sys.argv)>1 and sys.argv[1]=="labeled_raw":

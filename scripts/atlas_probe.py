@@ -1,10 +1,10 @@
 import anndata as ad, numpy as np, glob, os, json, warnings
 warnings.filterwarnings("ignore")
-dirs = [".../data/datasets/extra_preprocessed",
-        ".../data/datasets/CancerDatasets",
-        ".../data/datasets/CancerDatasets2",
-        ".../data/datasets/DevelopmentDatasets",
-        ".../data/datasets/DevelopmentDatasets2"]
+dirs = ["/home/zeyufu/Desktop/data/datasets/extra_preprocessed",
+        "/home/zeyufu/Desktop/data/datasets/CancerDatasets",
+        "/home/zeyufu/Desktop/data/datasets/CancerDatasets2",
+        "/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets",
+        "/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2"]
 CT = ["cell_type","celltype","CellType","cell.type","cluster","leiden","louvain","annotation","labels","cell_ontology_class","majority_voting","predicted_labels"]
 BATCH = ["batch","donor","sample","Sample","patient","Patient","orig.ident","dataset","study","donor_id","sample_id","batchlb","condition"]
 def pick(cols, cands):

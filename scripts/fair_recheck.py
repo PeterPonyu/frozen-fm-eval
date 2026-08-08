@@ -24,9 +24,9 @@ from sklearn.preprocessing import StandardScaler, label_binarize
 from sklearn.metrics import roc_auc_score
 rng=np.random.RandomState(20260623)
 LR={os.path.basename(f)[:-5]:f for f in glob.glob("expand_results/labeled_raw/*.h5ad")}
-NATIVE={"GSE130148_lung":(".../data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident"),
-        "GSE165784_retina":(".../data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch"),
-        "lung24k":(".../data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch")}
+NATIVE={"GSE130148_lung":("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident"),
+        "GSE165784_retina":("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch"),
+        "lung24k":("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch")}
 MOUSE={"lr_lps_mm","lr_lsk_batch","lr_progastin","lr_urine","lr_astrocytes_sci"}
 # representative HUMAN atlases (avoid mouse cross-species + circular louvain)
 PICK=["GSE130148_lung","GSE165784_retina","lung24k"]+["lr_"+os.path.basename(f)[:-5] for f in sorted(glob.glob("expand_results/labeled_raw/*.h5ad"))]

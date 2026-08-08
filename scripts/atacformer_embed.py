@@ -4,7 +4,7 @@
 import os, json, gzip, numpy as np, pandas as pd, anndata as ad, scipy.sparse as sp, torch, torch.nn as nn
 SEED=20260623; N_CELLS=20000; MAXLEN=4096; B=16; torch.manual_seed(SEED)
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__))); OUT=os.path.join(ROOT,"scatac_results")
-CK=".../data/models/atacformer-base-hg38"; dev="cuda" if torch.cuda.is_available() else "cpu"
+CK="/home/zeyufu/Desktop/data/models/atacformer-base-hg38"; dev="cuda" if torch.cuda.is_available() else "cpu"
 c=json.load(open(f"{CK}/config.json")); D,H,L,FF=c["hidden_size"],c["num_attention_heads"],c["num_hidden_layers"],c["intermediate_size"]
 V,PAD,CLS=c["vocab_size"],c["pad_token_id"],c["cls_token_id"]
 # ---- universe.bed -> per-chr sorted intervals (token id = line index) ----

@@ -11,9 +11,9 @@ from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 rng=np.random.RandomState(20260625)
 LR={os.path.basename(f)[:-5]:f for f in glob.glob("expand_results/labeled_raw/*.h5ad")}
-NATIVE={"GSE130148_lung":(".../data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident"),
-        "GSE165784_retina":(".../data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch"),
-        "lung24k":(".../data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch")}
+NATIVE={"GSE130148_lung":("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident"),
+        "GSE165784_retina":("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch"),
+        "lung24k":("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch")}
 PICK=["GSE130148_lung","GSE165784_retina","lung24k"]+["lr_"+os.path.basename(f)[:-5] for f in sorted(glob.glob("expand_results/labeled_raw/*.h5ad"))]
 def load(name):
     if name in NATIVE: f,ct,bt=NATIVE[name]

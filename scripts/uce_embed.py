@@ -12,8 +12,8 @@ nb.config=types.SimpleNamespace(NUMBA_NUM_THREADS=1); nb.set_num_threads=lambda 
 for sub in ["core","types","typed","extending","core.types"]: sys.modules["numba."+sub]=types.ModuleType("numba."+sub)
 nb.types=sys.modules["numba.types"]; sys.modules["numba"]=nb
 
-ROOT="..."
-UCEREPO=os.path.join(ROOT,"scripts","uce_repo"); DL=".../data/models/UCE"
+ROOT="/home/zeyufu/Desktop/singlecell-genomics-research/research/sc-fm-benchmark"
+UCEREPO=os.path.join(ROOT,"scripts","uce_repo"); DL="/home/zeyufu/Desktop/data/models/UCE"
 MF=os.path.join(UCEREPO,"model_files"); os.makedirs(MF,exist_ok=True)
 # symlink pre-downloaded files into model_files/ (UCE's figshare_download skips existing paths)
 for fn in ["4layer_model.torch","all_tokens.torch","species_chrom.csv","species_offsets.pkl"]:
@@ -30,7 +30,7 @@ if not os.path.isdir(os.path.join(MF,"protein_embeddings")):
             if os.path.isdir(d): os.symlink(d, os.path.join(MF,"protein_embeddings")); break
 
 os.chdir(UCEREPO); sys.path.insert(0, UCEREPO)
-GF=".../data/models/Geneformer/geneformer"
+GF="/home/zeyufu/Desktop/data/models/Geneformer/geneformer"
 HSYM=set(pickle.load(open(f"{GF}/gene_name_id_dict_gc104M.pkl","rb")).keys())  # human gene symbols
 OUT=os.path.join(ROOT,"expand_results","fm_emb"); WORK=os.path.join(ROOT,"expand_results","uce_work"); os.makedirs(WORK,exist_ok=True)
 from accelerate import Accelerator
@@ -59,9 +59,9 @@ def run(src_h5ad, ctcol, bcol, name):
     np.savez(out, X=X, y=A.obs[ctcol].astype(str).values, batch=A.obs[bcol].astype(str).values)
     print("SAVED",out,X.shape,flush=True)
 
-ATL=[(".../data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident","GSE130148_lung"),
-     (".../data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch","GSE165784_retina"),
-     (".../data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch","lung24k")]
+ATL=[("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad","celltype","orig.ident","GSE130148_lung"),
+     ("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad","cell_type","batch","GSE165784_retina"),
+     ("/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets/lung.h5ad","louvain","batch","lung24k")]
 if len(sys.argv)>1 and sys.argv[1]=="labeled_raw":
     ATL=[(f,"cell_type","batch","lr_"+os.path.basename(f)[:-5]) for f in sorted(_glob.glob(os.path.join(ROOT,"expand_results/labeled_raw/*.h5ad")))]
     print("labeled_raw atlases:",len(ATL),flush=True)

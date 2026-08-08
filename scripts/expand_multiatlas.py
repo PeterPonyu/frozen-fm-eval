@@ -14,9 +14,9 @@ from sklearn.calibration import CalibratedClassifierCV
 rng = np.random.RandomState(20260623)
 man = json.load(open("expand_results/atlas_manifest.json"))
 DIRS = {os.path.basename(d): d for d in [
- ".../data/datasets/extra_preprocessed",
- ".../data/datasets/CancerDatasets",".../data/datasets/CancerDatasets2",
- ".../data/datasets/DevelopmentDatasets",".../data/datasets/DevelopmentDatasets2"]}
+ "/home/zeyufu/Desktop/data/datasets/extra_preprocessed",
+ "/home/zeyufu/Desktop/data/datasets/CancerDatasets","/home/zeyufu/Desktop/data/datasets/CancerDatasets2",
+ "/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets","/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2"]}
 usable = [r for r in man if r.get("usable")]
 NCELL=8000  # subsample cap for speed
 def ece(p, yhat, y, B=15):

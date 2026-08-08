@@ -1,0 +1,154 @@
+================================================================================
+PeerJ Computer Science — SUBMISSION GUIDE + COPY-READY FORM INPUTS
+Paper: "Auditing frozen foundation-model embeddings: a leakage-controlled,
+        calibration-aware evaluation protocol stress-tested on single-cell genomics"
+Prepared 2026-07-04. Bundle: research/sc-fm-benchmark/paper/submission_peerj/
+================================================================================
+
+
+================================================================================
+PART A — FORMAT & STYLE CHECKLIST (prepare these BEFORE touching the online system)
+================================================================================
+
+TEMPLATE / CLASS
+- Use the PeerJ Overleaf template class: wlpeerj.cls (STOCK — do NOT edit it).
+  PeerJ's online all-TeX system supplies this class server-side.
+- Build with pdflatex, NOT lualatex (wlpeerj is a pdflatex class: Times/mathptmx +
+  inputenc). lualatex only substitutes fonts with "Font shape TU/... undefined".
+  Pin it locally with .latexmkrc:  $pdf_mode = 1;
+- Turn ON line numbers (PeerJ REQUIRES them):
+      \documentclass[fleqn,10pt,lineno]{wlpeerj}
+- Title / author / \affil / \keywords / \begin{abstract} all go in the PREAMBLE
+  (before \begin{document}); call \maketitle after \begin{document}.
+- Sections are UNNUMBERED: \setcounter{secnumdepth}{0}
+
+TITLE
+- Sentence case, NOT Title Case (PeerJ flags "too many capitalized words").
+  Only the first word + proper nouns/acronyms are capitalised.
+
+ABSTRACT
+- Structured with bold run-in labels: Background. / Methods. / Results. / Conclusions.
+  (PeerJ house style; most PeerJ CS papers use it). Pure regrouping — no number changes.
+- Define every acronym at first use (e.g. "expected calibration error (ECE)").
+
+BIBLIOGRAPHY  (the biggest gotcha — get this right or citations break on their server)
+- PeerJ's stock wlpeerj.cls hard-codes \bibliographystyle{apalike} (author-year,
+  ALPHABETICAL) and the system BLOCKS .cls and .bbl uploads. So:
+    * You CANNOT override the style with your own \bibliographystyle (a 2nd one clashes:
+      BibTeX "Illegal, another \bibstyle" -> all citations break).
+    * apalike alone gives an alphabetical list with non-sequential in-text numbers.
+- SOLUTION: EMBED the reference list inline as a `thebibliography` block, numbered by
+  first citation (generate it once with \bibliographystyle{unsrtnat}, then paste the .bbl
+  in place of \bibliography{references}). Keep \setcitestyle{numbers,square,comma,sort&compress}
+  for numeric [n]. With NO \bibliography/\bibliographystyle call, BibTeX never runs on
+  their server (no clash), and citations are sequential [1],[2],... by appearance.
+- references.bib is then only the source; it is NOT needed for the compile.
+
+FIGURES
+- PeerJ needs each figure as its OWN hi-res file (a TikZ .tex is source, not a figure).
+- Use VECTOR PDF (or EPS). NOT JPEG (lossy — blurs line-art/text). NOT .tex.
+- Name them Figure1.pdf ... FigureN.pdf in ORDER OF APPEARANCE. Paste each caption.
+- Multi-panel schematic (Figure 1 here = 2 panels): when exporting standalone, resize
+  BOTH panels to a COMMON width (\resizebox{\figw}{!}{...} in a fixed-width minipage),
+  NOT a centering tabular at natural widths, or the panel tags (A/B) misalign.
+- Submission manuscript uses \includegraphics{FigureN.pdf} (not \input TikZ): faster/
+  safer on their compiler and it doesn't ship the per-point data coordinates in the .tex.
+
+FLAT SOURCE
+- PeerJ compiles all uploaded files in ONE flat directory (NO subfolders). Keep every
+  file flat and reference it with no path prefix (\includegraphics{Figure1.pdf}, not
+  figs/Figure1.pdf).
+
+WHAT TO UPLOAD (and what NOT to)
+- Manuscript source:  manuscript.tex  (mark as PRIMARY / main TeX file; refs embedded)
+                      references.bib   (OPTIONAL — refs are embedded, compile doesn't need it)
+- Figures section:    Figure1.pdf ... Figure16.pdf
+- Article PDF:        manuscript.pdf
+- Cover letter:       cover_letter.pdf
+- Do NOT upload:      wlpeerj.cls (PeerJ provides it), any .bbl (PeerJ runs BibTeX),
+                      figure .tex sources (not used). These trigger "file type not allowed";
+                      do NOT move them to Supplemental Files.
+
+DATA / CODE (required — "cannot be reviewed without raw data or code")
+- Public archive on Zenodo (versioned, DOI) + GitHub (framework-only, no manuscript assets,
+  no local /home paths). Scrub any absolute local paths from released code before publishing.
+- Supplemental Files section = upload the machine-readable code/data ZIP (see Part B).
+
+
+================================================================================
+PART B — COPY-READY ONLINE FORM INPUTS  (paste each block as-is)
+================================================================================
+
+-------------------------------------------------------------------- [ TITLE ]
+Auditing frozen foundation-model embeddings: a leakage-controlled, calibration-aware evaluation protocol stress-tested on single-cell genomics
+
+------------------------------------------------------------- [ SHORT TITLE ]  (<=40 chars)
+Auditing frozen FM embeddings
+
+----------------------------------------------------------------- [ ABSTRACT ]  (plain text, ~1842 chars)
+Background. Evaluating frozen foundation-model (FM) embeddings is unreliable when the scoring metrics are entangled with the methods they rank, when tokenizer coverage is confounded with representation quality, and when the exchangeability that underwrites uncertainty guarantees is broken by distribution shift. Methods. We present a reusable, deterministic evaluation protocol for pretrained representations under distribution shift, built on four domain-general moves: every agreement metric is paired with a non-linear (kNN) probe and a reference-free structure metric to expose label circularity; tokenizer/vocabulary coverage is treated as a measured variable rather than a fixed assumption; parity is argued with an equivalence test (TOST) rather than an absent p-value; and reliability is audited with split-conformal coverage, expected calibration error (ECE), and selective abstention. The protocol's signature move replaces binary leaderboard verdicts with a dose-response analysis that places the criticized method class on the curve, converting a rank into a manipulable, causal mechanism. We stress-test it on single-cell genomics, a demanding regime of batch/donor shift, circular annotation, and cross-species tokenizer mismatch, across four modalities, up to 24 leakage-controlled atlases, and five FM families. Results. Three findings follow: zero-shot single-cell FMs neither beat nor trail simple baselines on matched vocabularies; the much-warned cross-batch calibration collapse is a general exchangeability failure of the data regime, not an FM defect; and which side "wins" is set by task and evaluation metric, not model scale or architecture. Conclusions. All findings are scoped to the zero-shot, frozen-embedding regime on coarse human cell types; fine-tuning and few-shot transfer are untested and can reverse them.
+
+--------------------------------------------- [ WHY A REVIEWER SHOULD REVIEW ]  (<=280 chars)
+You may enjoy this: it turns the "do single-cell foundation models beat simple baselines?" debate into a leakage-controlled, calibration-aware audit, pairing each metric with a non-linear probe, an equivalence test, and a conformal reliability check. We welcome your critique.
+
+--------------------------------------------------------- [ REVIEWER MATCH ]
+Yes (opt in — widens the reviewer pool; the editor still controls invitations).
+
+------------------------------------------------------- [ SUGGESTED EDITORS ]  (search PeerJ's editor board)
+1. Shibiao Wan   — University of Nebraska Medical Center (single-cell / ML / bioinformatics)
+2. Li Chen       — Indiana University School of Medicine (computational biology)
+   (backup) Pedro G. Ferreira — University of Porto (bioinformatics & genomics)
+
+----------------------------------------------------- [ SUGGESTED REVIEWERS ]  (First / Family / Email / Institution)
+1. Kasia      / Kedzierska      / kasia@well.ox.ac.uk           / University of Oxford (Wellcome Centre for Human Genetics), UK
+2. Rebecca    / Boiarsky        / rboiar@mit.edu                / Massachusetts Institute of Technology (CSAIL/EECS) & Broad Institute, USA
+3. Constantin / Ahlmann-Eltze   / constantin.ahlmann@embl.de    / European Molecular Biology Laboratory (EMBL), Heidelberg, Germany
+   (all COI-clean: different institutions, no co-authorship; each is a first author of a cited paper.
+    Verify emails still resolve; Ahlmann-Eltze's present address is UCL Cancer Institute, London.)
+
+------------------------------------ [ DATA AVAILABILITY — repository access ]
+1. Zenodo — full reproducibility archive (code, result tables, audit outputs, atlas manifest).
+   Repository/database: Zenodo
+   Accession/ID: 10.5281/zenodo.21071826 (concept DOI; resolves to latest, currently v1.2.1 = 10.5281/zenodo.21192499)
+   Link: https://doi.org/10.5281/zenodo.21071826
+2. GitHub — maintained framework + evaluation-protocol specification.
+   Repository/database: GitHub (PeterPonyu/frozen-fm-eval)
+   Accession/ID: frozen-fm-eval
+   Link: https://github.com/PeterPonyu/frozen-fm-eval
+3. Primary datasets (public):
+   - GEO GSE174367 — snATAC/snRNA, Morabito et al.: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE174367
+   - GEO GSE133344 — Norman et al. 2019 Perturb-seq: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE133344
+   - GEO GSE130148 — human lung scRNA atlas: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE130148
+   - CosMx lymph-node niche dataset (lymph_node_niche_annotated.h5ad), Wang et al. benchmark: https://github.com/WYXNICK/spatial-niche-benchmark
+   The full short-code-to-accession map for all 24 scRNA atlases is in atlas_manifest.json in the Zenodo archive.
+
+------------------------------- [ SUPPLEMENTAL FILE — metadata for the upload ]
+File to upload: frozen-fm-eval-full-v1.2.1-peerj.zip  (path-scrubbed PeerJ submission copy of the Zenodo v1.2.1 archive)
+File type: Dataset   (or "Code" if offered — it is both code and result tables)
+Title (<=200 chars):
+Deterministic code and result tables reproducing the leakage-controlled, calibration-aware evaluation of frozen single-cell foundation-model embeddings across four single-cell genomics modalities
+Legend:
+A ZIP archive of the reproducibility materials, prepared as a path-scrubbed PeerJ submission copy of Zenodo v1.2.1. Scripts read datasets via environment variables or portable relative paths; five scATAC scripts use `SCATAC_H5AD` when set and otherwise resolve `data/GSE174367_snATAC-seq_filtered_peak_bc_matrix.h5ad`. This portability edit changes no scientific logic, seeds, metrics, results, or figures. scripts/ contains deterministic, fixed-seed Python and R scripts, one per pipeline stage (corpus pooling; the fair-probe re-analysis; the vocabulary, batch-shift, and spatial dose-response analyses; the scATAC and spatial audits; the 24-atlas expansion; and the foundation-model embedders). results-summary/ holds the normalized per-comparison result tables (CSV/JSON) organized by cluster; reports/ holds the audit summaries; atlas_manifest.json maps every short-coded atlas to its public GEO/CELLxGENE accession. Large embeddings and non-redistributable external tables are excluded. Software: Python (numpy, scipy, scikit-learn, scanpy, pandas, and the crepes and MAPIE conformal-prediction libraries) and R; foundation-model inference uses each model's own public weights and code. Source release: Zenodo concept DOI 10.5281/zenodo.21071826, v1.2.1.
+
+------------------------------------------------------ [ NOTES TO STAFF ]  (if a field asks / link-only alternative)
+All raw data and analysis/figure code are openly available: (i) a complete, versioned reproducibility archive (code, normalized result tables, audit outputs, atlas manifest) on Zenodo, concept DOI 10.5281/zenodo.21071826 (current version v1.2.1); (ii) the maintained framework and evaluation-protocol code at github.com/PeterPonyu/frozen-fm-eval; and (iii) all primary datasets are public (GEO GSE174367, GSE133344, GSE130148; the CosMx lymph-node niche dataset; the full 24-atlas accession map is in atlas_manifest.json in the Zenodo archive). The uploaded supplemental archive is a path-scrubbed submission copy of Zenodo v1.2.1: five scATAC input defaults were made portable, with scientific logic and results unchanged; every script is deterministic under a fixed seed.
+
+-------------------------------------------------- [ SYSTEM-ENTERED METADATA ]  (not files)
+- Single author: Zeyu Fu, Army Medical University, Chongqing, China; fuzeyu99@126.com; ORCID 0009-0001-8329-0108
+- Author contributions: single working effort; independent adversarial verification run as a separate pass.
+- Funding: (enter as applicable)
+- Competing interests: none.
+- Ethics: not applicable (public, de-identified datasets).
+- Suggested subject areas: Artificial Intelligence; Data Science; Bioinformatics.
+
+
+================================================================================
+PART C — FILE UPLOAD CHECKLIST (what goes where)
+================================================================================
+[ Article PDF ]         manuscript.pdf
+[ Manuscript source ]   manuscript.tex   (mark PRIMARY)      (+ references.bib, optional)
+[ Figures section ]     Figure1.pdf ... Figure16.pdf         (vector PDF; appearance order; + captions)
+[ Cover letter ]        cover_letter.pdf
+[ Supplemental Files ]  frozen-fm-eval-full-v1.2.1-peerj.zip (Dataset; title + legend above)
+[ DO NOT UPLOAD ]       wlpeerj.cls, manuscript.bbl, figure .tex sources
+================================================================================

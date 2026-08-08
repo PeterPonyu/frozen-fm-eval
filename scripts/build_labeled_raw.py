@@ -4,9 +4,9 @@ import anndata as ad, numpy as np, json, os, glob, warnings, scipy.sparse as sp
 warnings.filterwarnings("ignore")
 man=json.load(open("expand_results/atlas_manifest.json"))
 DIRS={os.path.basename(d):d for d in [
- ".../data/datasets/extra_preprocessed",".../data/datasets/CancerDatasets",
- ".../data/datasets/CancerDatasets2",".../data/datasets/DevelopmentDatasets",
- ".../data/datasets/DevelopmentDatasets2"]}
+ "/home/zeyufu/Desktop/data/datasets/extra_preprocessed","/home/zeyufu/Desktop/data/datasets/CancerDatasets",
+ "/home/zeyufu/Desktop/data/datasets/CancerDatasets2","/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets",
+ "/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2"]}
 # labeled prepped atlases (have cell_type + batch)
 prepped=[r for r in man if r.get("ct") and r.get("nct",0)>=3 and r.get("nb",0)>=2 and "_prepped" in r["file"]]
 # raw candidate pool: integer counts, NO cell_type (the unlabeled raw twins) + the few already-raw labeled handled separately

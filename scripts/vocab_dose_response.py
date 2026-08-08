@@ -7,7 +7,7 @@
 import anndata as ad, numpy as np, json, os, glob, warnings, pickle, scipy.sparse as sp, pandas as pd
 warnings.filterwarnings("ignore")
 from scipy.stats import spearmanr, pearsonr
-M=".../data/models"
+M="/home/zeyufu/Desktop/data/models"
 # ---- vocabularies (per FM) ----
 GF=set(pickle.load(open(f"{M}/Geneformer/geneformer/gene_name_id_dict_gc104M.pkl","rb")).keys())  # human symbols
 SYM2ENS=pickle.load(open(f"{M}/Geneformer/geneformer/gene_name_id_dict_gc104M.pkl","rb"))          # symbol->ENSG
@@ -29,9 +29,9 @@ def maps(fm, vn):
 
 # ---- atlas list (identical to fm_all_audit.py) ----
 LR={os.path.basename(f)[:-5]:f for f in glob.glob("expand_results/labeled_raw/*.h5ad")}
-ATL=[("GSE130148_lung",".../data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad"),
-     ("GSE165784_retina",".../data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad"),
-     ("lung24k",".../data/datasets/DevelopmentDatasets/lung.h5ad")]
+ATL=[("GSE130148_lung","/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE130148_LungHmDev.h5ad"),
+     ("GSE165784_retina","/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets2/GSE165784_RetinaHmDev.h5ad"),
+     ("lung24k","/home/zeyufu/Desktop/data/datasets/DevelopmentDatasets/lung.h5ad")]
 for nm,f in sorted(LR.items()): ATL.append(("lr_"+nm,f))
 
 AUD={r["atlas"]:r for r in json.load(open("expand_results/fm_all_audit.json"))}
