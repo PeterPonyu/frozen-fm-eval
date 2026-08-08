@@ -23,3 +23,11 @@ __pycache__/
 .ipynb_checkpoints/
 # Logs
 *.log
+
+.omc/
+**/.omc/
+*.aux
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
