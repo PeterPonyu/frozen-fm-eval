@@ -26,6 +26,12 @@ __pycache__/
 
 .omc/
 **/.omc/
+# OMC runtime state (tracked planning docs under .omx/context|plans|state stay tracked)
+.omx/artifacts/
+.omx/state/monocells-pages/
+# Editor / tooling scratch
+.cursor/
+.playwright-mcp/
 *.aux
 *.fdb_latexmk
 *.fls
