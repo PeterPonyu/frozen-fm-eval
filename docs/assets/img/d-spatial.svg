@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-label="Spatial-aggregation dose: the per-cell baseline rises toward the criticized spatial class as k neighbours are aggregated. Protocol mechanism, not finding 3.">
+<rect width="320" height="180" fill="#F3F5F7"/>
+<line x1="52" y1="18" x2="52" y2="142" stroke="#1B2430" stroke-width="1"/>
+<line x1="52" y1="142" x2="300" y2="142" stroke="#1B2430" stroke-width="1"/>
+<text x="46" y="145.0" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">0.0</text>
+<text x="46" y="83.0" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">0.5</text>
+<text x="46" y="21.0" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">1.0</text>
+<text x="52.0" y="156" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="middle">1</text>
+<text x="126.7" y="156" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="middle">4</text>
+<text x="201.3" y="156" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="middle">16</text>
+<text x="300.0" y="156" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="middle">100</text>
+<text x="14" y="88" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" transform="rotate(-90 14 88)">Performance (AUROC)</text>
+<text x="176" y="172" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">Spots aggregated (log)</text>
+<polyline fill="none" stroke="#0F6F6A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" points="52.0,45.3 111.2,45.3 148.5,44.0 185.8,44.0 225.3,42.8 262.7,42.8 300.0,42.8"/>
+<circle cx="52.0" cy="45.3" r="2" fill="#0F6F6A"/>
+<circle cx="111.2" cy="45.3" r="2" fill="#0F6F6A"/>
+<circle cx="148.5" cy="44.0" r="2" fill="#0F6F6A"/>
+<circle cx="185.8" cy="44.0" r="2" fill="#0F6F6A"/>
+<circle cx="225.3" cy="42.8" r="2" fill="#0F6F6A"/>
+<circle cx="262.7" cy="42.8" r="2" fill="#0F6F6A"/>
+<circle cx="300.0" cy="42.8" r="2" fill="#0F6F6A"/>
+<polyline fill="none" stroke="#1B2430" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3" points="52.0,72.6 111.2,65.1 148.5,57.7 185.8,51.5 225.3,46.5 262.7,44.0 300.0,42.8"/>
+<circle cx="52.0" cy="72.6" r="2" fill="#1B2430"/>
+<circle cx="111.2" cy="65.1" r="2" fill="#1B2430"/>
+<circle cx="148.5" cy="57.7" r="2" fill="#1B2430"/>
+<circle cx="185.8" cy="51.5" r="2" fill="#1B2430"/>
+<circle cx="225.3" cy="46.5" r="2" fill="#1B2430"/>
+<circle cx="262.7" cy="44.0" r="2" fill="#1B2430"/>
+<circle cx="300.0" cy="42.8" r="2" fill="#1B2430"/>
+<text x="111.2" y="82.5" fill="#5C6773" font-size="7" font-family="IBM Plex Mono">gap at k≈1</text>
+<text x="250.7" y="35.4" fill="#5C6773" font-size="7" font-family="IBM Plex Mono">gap closes</text>
+</svg>

@@ -1,0 +1,199 @@
+{
+  "kind": "site-summary",
+  "title": "Frozen-FM-Eval dose–response public summary",
+  "note": "Reconstructed from site-allowed public claims only (chance floor 0.50; TOST ±0.02 AUROC; 20/24 atlases collapse; scATAC flat; Geneformer 104M→316M same band). Not Zenodo point tables and not a raw atlas dump.",
+  "zenodo": "https://doi.org/10.5281/zenodo.21071827",
+  "allowed_claims": [
+    "20/24",
+    "±0.02 AUROC",
+    "Geneformer 104M→316M",
+    "scATAC is flat"
+  ],
+  "maps": {
+    "vocab": {
+      "id": "d-vocab",
+      "aria": "Vocabulary dose: frozen FM cliffs to chance when almost no genes are readable; at matched vocabulary it sits in the ±0.02 AUROC parity band with the baseline. Geneformer 104M and 316M occupy the same band.",
+      "xLabel": "Readable-gene fraction (log)",
+      "yLabel": "Performance (AUROC)",
+      "xScale": "log",
+      "xMin": 0.05,
+      "xMax": 1.0,
+      "yMin": 0.0,
+      "yMax": 1.0,
+      "yTicks": [0.0, 0.5, 1.0],
+      "xTicks": [0.05, 0.15, 0.4, 1.0],
+      "band": {
+        "y0": 0.70,
+        "y1": 0.74,
+        "label": "TOST ±0.02"
+      },
+      "callouts": [
+        {
+          "x": 0.08,
+          "y": 0.42,
+          "text": "cliff → chance"
+        },
+        {
+          "x": 0.72,
+          "y": 0.82,
+          "text": "104M→316M same band"
+        }
+      ],
+      "series": [
+        {
+          "id": "criticized",
+          "label": "criticized class",
+          "style": "solid",
+          "color": "#0F6F6A",
+          "points": [
+            { "x": 0.05, "y": 0.50 },
+            { "x": 0.08, "y": 0.50 },
+            { "x": 0.14, "y": 0.52 },
+            { "x": 0.25, "y": 0.60 },
+            { "x": 0.45, "y": 0.70 },
+            { "x": 0.75, "y": 0.72 },
+            { "x": 1.00, "y": 0.72 }
+          ]
+        },
+        {
+          "id": "baseline",
+          "label": "baseline",
+          "style": "dashed",
+          "color": "#1B2430",
+          "points": [
+            { "x": 0.05, "y": 0.72 },
+            { "x": 0.08, "y": 0.72 },
+            { "x": 0.14, "y": 0.72 },
+            { "x": 0.25, "y": 0.72 },
+            { "x": 0.45, "y": 0.72 },
+            { "x": 0.75, "y": 0.72 },
+            { "x": 1.00, "y": 0.72 }
+          ]
+        }
+      ]
+    },
+    "batch": {
+      "id": "d-batch",
+      "aria": "Batch-shift dose: conformal coverage falls with measured shift for the criticized class and the baseline together. Collapse on 20 of 24 atlases; scATAC is flat.",
+      "xLabel": "Shift magnitude (log)",
+      "yLabel": "Conformal coverage",
+      "xScale": "log",
+      "xMin": 0.55,
+      "xMax": 0.98,
+      "yMin": 0.0,
+      "yMax": 1.0,
+      "yTicks": [0.0, 0.5, 1.0],
+      "xTicks": [0.55, 0.70, 0.85, 0.98],
+      "callouts": [
+        {
+          "x": 0.62,
+          "y": 0.28,
+          "text": "20/24 collapse"
+        },
+        {
+          "x": 0.88,
+          "y": 0.92,
+          "text": "scATAC flat"
+        }
+      ],
+      "series": [
+        {
+          "id": "criticized",
+          "label": "criticized class",
+          "style": "solid",
+          "color": "#0F6F6A",
+          "points": [
+            { "x": 0.55, "y": 0.90 },
+            { "x": 0.62, "y": 0.86 },
+            { "x": 0.70, "y": 0.74 },
+            { "x": 0.78, "y": 0.58 },
+            { "x": 0.88, "y": 0.42 },
+            { "x": 0.98, "y": 0.32 }
+          ]
+        },
+        {
+          "id": "baseline",
+          "label": "baseline",
+          "style": "dashed",
+          "color": "#1B2430",
+          "points": [
+            { "x": 0.55, "y": 0.90 },
+            { "x": 0.62, "y": 0.85 },
+            { "x": 0.70, "y": 0.73 },
+            { "x": 0.78, "y": 0.57 },
+            { "x": 0.88, "y": 0.41 },
+            { "x": 0.98, "y": 0.31 }
+          ]
+        },
+        {
+          "id": "scatac",
+          "label": "scATAC",
+          "style": "solid",
+          "color": "#0F6F6A",
+          "width": 1,
+          "points": [
+            { "x": 0.70, "y": 0.90 },
+            { "x": 0.98, "y": 0.90 }
+          ]
+        }
+      ]
+    },
+    "spatial": {
+      "id": "d-spatial",
+      "aria": "Spatial-aggregation dose: the per-cell baseline rises toward the criticized spatial class as k neighbours are aggregated. Protocol mechanism, not finding 3.",
+      "xLabel": "Spots aggregated (log)",
+      "yLabel": "Performance (AUROC)",
+      "xScale": "log",
+      "xMin": 1,
+      "xMax": 100,
+      "yMin": 0.0,
+      "yMax": 1.0,
+      "yTicks": [0.0, 0.5, 1.0],
+      "xTicks": [1, 4, 16, 100],
+      "callouts": [
+        {
+          "x": 3,
+          "y": 0.48,
+          "text": "gap at k≈1"
+        },
+        {
+          "x": 40,
+          "y": 0.86,
+          "text": "gap closes"
+        }
+      ],
+      "series": [
+        {
+          "id": "criticized",
+          "label": "criticized class",
+          "style": "solid",
+          "color": "#0F6F6A",
+          "points": [
+            { "x": 1, "y": 0.78 },
+            { "x": 3, "y": 0.78 },
+            { "x": 6, "y": 0.79 },
+            { "x": 12, "y": 0.79 },
+            { "x": 25, "y": 0.80 },
+            { "x": 50, "y": 0.80 },
+            { "x": 100, "y": 0.80 }
+          ]
+        },
+        {
+          "id": "baseline",
+          "label": "baseline",
+          "style": "dashed",
+          "color": "#1B2430",
+          "points": [
+            { "x": 1, "y": 0.56 },
+            { "x": 3, "y": 0.62 },
+            { "x": 6, "y": 0.68 },
+            { "x": 12, "y": 0.73 },
+            { "x": 25, "y": 0.77 },
+            { "x": 50, "y": 0.79 },
+            { "x": 100, "y": 0.80 }
+          ]
+        }
+      ]
+    }
+  }
+}

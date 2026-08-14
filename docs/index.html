@@ -124,17 +124,11 @@
             <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>D.vocab</span><span>DOSE</span></p>
             <h3 class="mc-cell__title">Vocabulary dose</h3>
             <figure class="mc-curve">
-            <svg class="mc-curve__svg" viewBox="0 0 320 180" role="img" aria-label="Empty dose-response axes reserved for Zenodo https://doi.org/10.5281/zenodo.21071827.">
-              <rect width="320" height="180" fill="#F3F5F7"/>
-              <line x1="52" y1="18" x2="52" y2="142" stroke="#1B2430" stroke-width="1"/>
-              <line x1="52" y1="142" x2="300" y2="142" stroke="#1B2430" stroke-width="1"/>
-              <text x="14" y="88" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" transform="rotate(-90 14 88)">Performance (AUROC)</text>
-              <text x="176" y="168" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">Vocabulary size (log)</text>
-              <text x="46" y="146" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">0.0</text>
-              <text x="46" y="22" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">1.0</text>
-            </svg>
+            <div class="mc-curve__mount" data-dose-map="vocab">
+              <img class="mc-curve__svg" src="./assets/img/d-vocab.svg" alt="Vocabulary dose preview: frozen FM cliffs to chance at low readable-gene fraction; matched vocabulary sits in the ±0.02 AUROC parity band.">
+            </div>
             <p class="mc-legend"><span class="mc-solid">criticized class</span> · <span class="mc-dashed">baseline</span></p>
-            <figcaption>Empty 16:9 frame. Figure from Zenodo https://doi.org/10.5281/zenodo.21071827 — not yet copied.</figcaption>
+            <figcaption>Loaded eval summary: vocabulary cliff to chance, then ±0.02 AUROC parity.</figcaption>
           </figure>
             <p class="mc-cell__link"><a href="./dose-response.html#d-vocab">Open vocabulary dose</a></p>
           </article>
@@ -142,17 +136,11 @@
             <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>D.batch</span><span>DOSE</span></p>
             <h3 class="mc-cell__title">Batch-shift dose</h3>
             <figure class="mc-curve">
-            <svg class="mc-curve__svg" viewBox="0 0 320 180" role="img" aria-label="Empty dose-response axes reserved for Zenodo https://doi.org/10.5281/zenodo.21071827.">
-              <rect width="320" height="180" fill="#F3F5F7"/>
-              <line x1="52" y1="18" x2="52" y2="142" stroke="#1B2430" stroke-width="1"/>
-              <line x1="52" y1="142" x2="300" y2="142" stroke="#1B2430" stroke-width="1"/>
-              <text x="14" y="88" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" transform="rotate(-90 14 88)">Performance (AUROC)</text>
-              <text x="176" y="168" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">Shift magnitude (log)</text>
-              <text x="46" y="146" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">0.0</text>
-              <text x="46" y="22" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">1.0</text>
-            </svg>
+            <div class="mc-curve__mount" data-dose-map="batch">
+              <img class="mc-curve__svg" src="./assets/img/d-batch.svg" alt="Batch-shift dose preview: coverage falls with shift for both classes; 20/24 atlases collapse; scATAC is flat.">
+            </div>
             <p class="mc-legend"><span class="mc-solid">criticized class</span> · <span class="mc-dashed">baseline</span></p>
-            <figcaption>Empty 16:9 frame. Figure from Zenodo https://doi.org/10.5281/zenodo.21071827 — not yet copied.</figcaption>
+            <figcaption>Loaded eval summary: 20/24 collapse with shift; scATAC is flat.</figcaption>
           </figure>
             <p class="mc-cell__link"><a href="./dose-response.html#d-batch">Open batch-shift dose</a></p>
           </article>
@@ -161,17 +149,11 @@
             <h3 class="mc-cell__title">Spatial-aggregation dose</h3>
             <p class="mc-cell__body">Protocol mechanism cell: smooth over k neighbours. Not finding 3.</p>
             <figure class="mc-curve">
-            <svg class="mc-curve__svg" viewBox="0 0 320 180" role="img" aria-label="Empty dose-response axes reserved for Zenodo https://doi.org/10.5281/zenodo.21071827.">
-              <rect width="320" height="180" fill="#F3F5F7"/>
-              <line x1="52" y1="18" x2="52" y2="142" stroke="#1B2430" stroke-width="1"/>
-              <line x1="52" y1="142" x2="300" y2="142" stroke="#1B2430" stroke-width="1"/>
-              <text x="14" y="88" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" transform="rotate(-90 14 88)">Performance (AUROC)</text>
-              <text x="176" y="168" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">Spots aggregated (log)</text>
-              <text x="46" y="146" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">0.0</text>
-              <text x="46" y="22" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">1.0</text>
-            </svg>
+            <div class="mc-curve__mount" data-dose-map="spatial">
+              <img class="mc-curve__svg" src="./assets/img/d-spatial.svg" alt="Spatial-aggregation dose preview: per-cell baseline closes the gap as k neighbours are aggregated.">
+            </div>
             <p class="mc-legend"><span class="mc-solid">criticized class</span> · <span class="mc-dashed">baseline</span></p>
-            <figcaption>Empty 16:9 frame. Figure from Zenodo https://doi.org/10.5281/zenodo.21071827 — not yet copied.</figcaption>
+            <figcaption>Loaded eval summary: spatial-aggregation dose closes the per-cell gap. Not finding 3.</figcaption>
           </figure>
             <p class="mc-cell__link"><a href="./dose-response.html#d-spatial">Open spatial-aggregation dose</a></p>
           </article>
@@ -218,5 +200,6 @@
       <p>Figures and audit outputs: Zenodo concept <a href="https://doi.org/10.5281/zenodo.21071826" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.21071826</a>; version <a href="https://doi.org/10.5281/zenodo.21071827" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.21071827</a>.</p>
     </footer>
   </div>
+  <script src="./assets/js/dose-maps.js" defer></script>
 </body>
 </html>

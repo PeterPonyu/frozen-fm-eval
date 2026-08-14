@@ -52,17 +52,11 @@
           <h2 class="mc-cell__title">Vocabulary dose</h2>
           <p class="mc-cell__body">Sweep the fraction of readable genes across atlases, and causally inside a fixed atlas by renaming genes so the tokenizer cannot read them. An apparent cross-species FM failure becomes a tokenization cliff to chance once almost no genes are readable; otherwise at parity.</p>
           <figure class="mc-curve">
-            <svg class="mc-curve__svg" viewBox="0 0 320 180" role="img" aria-label="Empty dose-response axes reserved for Zenodo https://doi.org/10.5281/zenodo.21071827.">
-              <rect width="320" height="180" fill="#F3F5F7"/>
-              <line x1="52" y1="18" x2="52" y2="142" stroke="#1B2430" stroke-width="1"/>
-              <line x1="52" y1="142" x2="300" y2="142" stroke="#1B2430" stroke-width="1"/>
-              <text x="14" y="88" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" transform="rotate(-90 14 88)">Performance (AUROC)</text>
-              <text x="176" y="168" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">Vocabulary size (log)</text>
-              <text x="46" y="146" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">0.0</text>
-              <text x="46" y="22" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">1.0</text>
-            </svg>
+            <div class="mc-curve__mount" data-dose-map="vocab">
+              <img class="mc-curve__svg" src="./assets/img/d-vocab.svg" alt="Vocabulary dose: frozen FM cliffs to chance when almost no genes are readable; at matched vocabulary it sits in the ±0.02 AUROC parity band with the baseline. Geneformer 104M and 316M occupy the same band.">
+            </div>
             <p class="mc-legend"><span class="mc-solid">criticized class</span> · <span class="mc-dashed">baseline</span></p>
-            <figcaption>Empty 16:9 frame. Figure from Zenodo https://doi.org/10.5281/zenodo.21071827 — not yet copied.</figcaption>
+            <figcaption>Loaded eval summary (site-summary): chance floor; TOST ±0.02 AUROC at matched vocabulary; Geneformer 104M→316M same band. Full archive: https://doi.org/10.5281/zenodo.21071827.</figcaption>
           </figure>
           <ul class="mc-scripts">
             <li>Vocabulary-coverage sweep across atlases</li>
@@ -76,17 +70,11 @@
           <h2 class="mc-cell__title">Batch-shift dose</h2>
           <p class="mc-cell__body">Score coverage and ECE degradation against measured shift strength (held-out-batch discriminability). A calibration collapse attributed to FMs afflicts classical baselines by the same amount: it is a property of the regime.</p>
           <figure class="mc-curve">
-            <svg class="mc-curve__svg" viewBox="0 0 320 180" role="img" aria-label="Empty dose-response axes reserved for Zenodo https://doi.org/10.5281/zenodo.21071827.">
-              <rect width="320" height="180" fill="#F3F5F7"/>
-              <line x1="52" y1="18" x2="52" y2="142" stroke="#1B2430" stroke-width="1"/>
-              <line x1="52" y1="142" x2="300" y2="142" stroke="#1B2430" stroke-width="1"/>
-              <text x="14" y="88" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" transform="rotate(-90 14 88)">Performance (AUROC)</text>
-              <text x="176" y="168" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">Shift magnitude (log)</text>
-              <text x="46" y="146" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">0.0</text>
-              <text x="46" y="22" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">1.0</text>
-            </svg>
+            <div class="mc-curve__mount" data-dose-map="batch">
+              <img class="mc-curve__svg" src="./assets/img/d-batch.svg" alt="Batch-shift dose: conformal coverage falls with measured shift for the criticized class and the baseline together. Collapse on 20 of 24 atlases; scATAC is flat.">
+            </div>
             <p class="mc-legend"><span class="mc-solid">criticized class</span> · <span class="mc-dashed">baseline</span></p>
-            <figcaption>Empty 16:9 frame. Figure from Zenodo https://doi.org/10.5281/zenodo.21071827 — not yet copied.</figcaption>
+            <figcaption>Loaded eval summary (site-summary): 20/24 atlases collapse with shift; scATAC is flat; criticized class and baseline move together. Full archive: https://doi.org/10.5281/zenodo.21071827.</figcaption>
           </figure>
           <ul class="mc-scripts">
             <li>Coverage and ECE versus measured batch-shift strength</li>
@@ -100,17 +88,11 @@
           <h2 class="mc-cell__title">Spatial-aggregation dose</h2>
           <p class="mc-cell__body">Smooth per-cell representations over k spatial neighbours. A spatial-FM gap closes once a per-cell baseline is given the one operation it lacked. This cell is the protocol mechanism, not finding 3.</p>
           <figure class="mc-curve">
-            <svg class="mc-curve__svg" viewBox="0 0 320 180" role="img" aria-label="Empty dose-response axes reserved for Zenodo https://doi.org/10.5281/zenodo.21071827.">
-              <rect width="320" height="180" fill="#F3F5F7"/>
-              <line x1="52" y1="18" x2="52" y2="142" stroke="#1B2430" stroke-width="1"/>
-              <line x1="52" y1="142" x2="300" y2="142" stroke="#1B2430" stroke-width="1"/>
-              <text x="14" y="88" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" transform="rotate(-90 14 88)">Performance (AUROC)</text>
-              <text x="176" y="168" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">Spots aggregated (log)</text>
-              <text x="46" y="146" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">0.0</text>
-              <text x="46" y="22" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">1.0</text>
-            </svg>
+            <div class="mc-curve__mount" data-dose-map="spatial">
+              <img class="mc-curve__svg" src="./assets/img/d-spatial.svg" alt="Spatial-aggregation dose: the per-cell baseline rises toward the criticized spatial class as k neighbours are aggregated. Protocol mechanism, not finding 3.">
+            </div>
             <p class="mc-legend"><span class="mc-solid">criticized class</span> · <span class="mc-dashed">baseline</span></p>
-            <figcaption>Empty 16:9 frame. Figure from Zenodo https://doi.org/10.5281/zenodo.21071827 — not yet copied.</figcaption>
+            <figcaption>Loaded eval summary (site-summary): spatial-aggregation dose — the per-cell baseline closes the gap as k grows. Not finding 3. Full archive: https://doi.org/10.5281/zenodo.21071827.</figcaption>
           </figure>
           <ul class="mc-scripts">
             <li>Spatial-neighbour aggregation dose</li>
@@ -128,5 +110,6 @@
       <p>Figures and audit outputs: Zenodo concept <a href="https://doi.org/10.5281/zenodo.21071826" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.21071826</a>; version <a href="https://doi.org/10.5281/zenodo.21071827" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.21071827</a>.</p>
     </footer>
   </div>
+  <script src="./assets/js/dose-maps.js" defer></script>
 </body>
 </html>

@@ -296,13 +296,22 @@ a:hover { text-decoration: underline; }
 }
 
 .mc-curve__frame,
-.mc-curve__svg {
+.mc-curve__svg,
+.mc-curve__mount {
   aspect-ratio: 16 / 9;
   width: 100%;
   height: auto;
   display: block;
   border: 1px solid var(--membrane);
   background: var(--bg);
+}
+
+.mc-curve__mount {
+  border: 0;
+}
+
+.mc-curve__mount .mc-curve__svg {
+  border: 1px solid var(--membrane);
 }
 
 .mc-curve__frame {
