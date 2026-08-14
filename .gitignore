@@ -21,17 +21,22 @@ cellplm_repo/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+.venv/
+# Node
+node_modules/
 # Logs
 *.log
 
+# AI / editor process dirs — never track on the remote
+.cursor/
+.cursor.cloud/
+.cloud/
+.omx/
 .omc/
 **/.omc/
-# OMC runtime state (tracked planning docs under .omx/context|plans|state stay tracked)
-.omx/artifacts/
-.omx/state/monocells-pages/*
-!.omx/state/monocells-pages/STRUCTURE-12H.md
+.claude/
+.codex/
 # Editor / tooling scratch
-.cursor/
 .playwright-mcp/
 *.aux
 *.fdb_latexmk
