@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frozen-FM-Eval — Overview · Monocells</title>
+  <meta name="description" content="A leakage-controlled, calibration-aware evaluation protocol for frozen foundation-model embeddings, stress-tested on single-cell genomics — an audit in place of a leaderboard.">
+  <meta property="og:title" content="Frozen-FM-Eval">
+  <meta property="og:description" content="A leakage-controlled, calibration-aware evaluation protocol for frozen foundation-model embeddings, stress-tested on single-cell genomics — an audit in place of a leaderboard.">
+  <link rel="canonical" href="https://peterponyu.github.io/frozen-fm-eval/index.html">
+  <link rel="icon" href="./assets/img/favicon.svg">
+  <link rel="stylesheet" href="./assets/css/monocells.css">
+</head>
+<body>
+  <a class="mc-skip" href="#main">Skip to main content</a>
+  <div class="mc-wrap">
+    <header class="mc-masthead">
+      <div class="mc-masthead__row">
+        <h1 class="mc-wordmark">Frozen-FM-Eval</h1>
+        <p class="mc-status" role="status">PeerJ Computer Science · under review</p>
+      </div>
+      <p class="mc-claim">A leakage-controlled, calibration-aware evaluation protocol for frozen foundation-model embeddings, stress-tested on single-cell genomics — an audit in place of a leaderboard.</p>
+      <p class="mc-system">displayed in Monocells</p>
+      <nav class="mc-nav" aria-label="Primary">
+        <ul class="mc-nav-desktop">
+        <li><a href="./index.html" aria-current="page">Overview</a></li>
+        <li><a href="./findings.html">Findings</a></li>
+        <li><a href="./protocol.html">Protocol</a></li>
+        <li><a href="./dose-response.html">Dose–response</a></li>
+        <li><a href="./apply.html">Apply</a></li>
+        <li><a href="./resources.html">Resources</a></li>
+        </ul>
+        <details class="mc-nav-menu">
+          <summary>Menu</summary>
+          <ul>
+        <li><a href="./index.html" aria-current="page">Overview</a></li>
+        <li><a href="./findings.html">Findings</a></li>
+        <li><a href="./protocol.html">Protocol</a></li>
+        <li><a href="./dose-response.html">Dose–response</a></li>
+        <li><a href="./apply.html">Apply</a></li>
+        <li><a href="./resources.html">Resources</a></li>
+          </ul>
+        </details>
+      </nav>
+    </header>
+    <main id="main">
+
+      <section class="mc-monolayer" aria-labelledby="why-heading">
+        <h2 id="why-heading">Why a protocol, not a leaderboard</h2>
+        <div class="mc-grid mc-grid--why">
+          <article class="mc-cell mc-cell--why" id="why">
+            <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>WHY</span><span>CONTEXT</span></p>
+            <h3 class="mc-cell__title">Circularity</h3>
+            <p class="mc-cell__body">Agreement scores can reward the label-generating process instead of representation quality. Pair every agreement metric with a circularity-free re-check, then convert the apparent rank into a dose–response.</p>
+          </article>
+          <article class="mc-cell mc-cell--why">
+            <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>WHY</span><span>COVERAGE</span></p>
+            <h3 class="mc-cell__title">Coverage–quality confound</h3>
+            <p class="mc-cell__body">A pretrained tokenizer reads only the genes in its vocabulary. An atlas can score coverage while appearing to score representation.</p>
+          </article>
+          <article class="mc-cell mc-cell--why">
+            <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>WHY</span><span>SHIFT</span></p>
+            <h3 class="mc-cell__title">Broken exchangeability</h3>
+            <p class="mc-cell__body">Split-conformal coverage and calibration are only valid under exchangeability, which cross-batch and donor annotation violate.</p>
+          </article>
+        </div>
+      </section>
+      <section class="mc-monolayer" aria-labelledby="findings-heading">
+        <h2 id="findings-heading">Findings</h2>
+        <div class="mc-grid mc-grid--findings">
+          <article class="mc-cell" id="f1">
+            <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>F1</span><span>FINDING</span></p>
+            <h3 class="mc-cell__title">Vocabulary-matched atlases: frozen scFMs neither beat nor trail simple baselines</h3>
+            <p class="mc-cell__body">On vocabulary-matched atlases, frozen scFMs neither beat nor trail PCA, HVG, or scVI. Pair the claim with the vocabulary dose, not a leaderboard cell.</p>
+            <p class="mc-cell__link"><a href="./findings.html#f1">Finding F1</a> · <a href="./dose-response.html#d-vocab">Vocabulary dose</a></p>
+          </article>
+          <article class="mc-cell" id="f2">
+            <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>F2</span><span>FINDING</span></p>
+            <h3 class="mc-cell__title">Calibration collapse is a general exchangeability failure</h3>
+            <p class="mc-cell__body">Cross-batch calibration collapse is a general exchangeability failure, not an FM defect (20/24 atlases; scATAC is flat).</p>
+            <p class="mc-cell__link"><a href="./findings.html#f2">Finding F2</a> · <a href="./dose-response.html#d-batch">Batch-shift dose</a></p>
+          </article>
+          <article class="mc-cell" id="f3">
+            <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>F3</span><span>FINDING</span></p>
+            <h3 class="mc-cell__title">Who wins is set by task and metric, not scale</h3>
+            <p class="mc-cell__body">Who wins is set by task and metric, not scale or architecture (Geneformer 104M→316M buys nothing).</p>
+            <p class="mc-cell__link"><a href="./findings.html#f3">Finding F3</a></p>
+          </article>
+        </div>
+      </section>
+      <section class="mc-monolayer" aria-labelledby="moves-heading">
+        <h2 id="moves-heading">Four deconfounding moves</h2>
+        <div class="mc-grid mc-grid--moves">
+          <article class="mc-cell">
+            <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>P.i</span><span>MOVE</span></p>
+            <h3 class="mc-cell__title">Circularity-free re-check</h3>
+            <p class="mc-cell__body">Pair every agreement metric with a non-linear probe and a reference-free structure metric.</p>
+            <p class="mc-cell__link"><a href="./protocol.html#move-i">Move i</a></p>
+          </article>
+          <article class="mc-cell">
+            <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>P.ii</span><span>MOVE</span></p>
+            <h3 class="mc-cell__title">Coverage as a measured variable</h3>
+            <p class="mc-cell__body">Treat tokenizer and vocabulary coverage as a measured variable, not an assumed constant.</p>
+            <p class="mc-cell__link"><a href="./protocol.html#move-ii">Move ii</a></p>
+          </article>
+          <article class="mc-cell">
+            <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>P.iii</span><span>MOVE</span></p>
+            <h3 class="mc-cell__title">Parity by equivalence</h3>
+            <p class="mc-cell__body">Argue parity by TOST (±0.02 AUROC), not by an absent p-value.</p>
+            <p class="mc-cell__link"><a href="./protocol.html#move-iii">Move iii</a></p>
+          </article>
+          <article class="mc-cell">
+            <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>P.iv</span><span>MOVE</span></p>
+            <h3 class="mc-cell__title">Reliability axis</h3>
+            <p class="mc-cell__body">Score split-conformal coverage, ECE calibration, and selective abstention under the deployment shift.</p>
+            <p class="mc-cell__link"><a href="./protocol.html#move-iv">Move iv</a></p>
+          </article>
+        </div>
+      </section>
+      <section class="mc-monolayer" aria-labelledby="dose-heading">
+        <h2 id="dose-heading">Dose–response</h2>
+        <p>Whenever you would report a rank, find the dose that produces it, put the criticized method class on the same curve, and report the mechanism.</p>
+        <div class="mc-grid mc-grid--dose">
+          <article class="mc-cell mc-cell--dose">
+            <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>D.vocab</span><span>DOSE</span></p>
+            <h3 class="mc-cell__title">Vocabulary dose</h3>
+            <figure class="mc-curve">
+            <svg class="mc-curve__svg" viewBox="0 0 320 180" role="img" aria-label="Empty dose-response axes reserved for Zenodo https://doi.org/10.5281/zenodo.21071827.">
+              <rect width="320" height="180" fill="#F3F5F7"/>
+              <line x1="52" y1="18" x2="52" y2="142" stroke="#1B2430" stroke-width="1"/>
+              <line x1="52" y1="142" x2="300" y2="142" stroke="#1B2430" stroke-width="1"/>
+              <text x="14" y="88" fill="#5C6773" font-size="9" font-family="IBM Plex Mono, ui-monospace, monospace" transform="rotate(-90 14 88)">Performance (AUROC)</text>
+              <text x="176" y="168" fill="#5C6773" font-size="9" font-family="IBM Plex Mono, ui-monospace, monospace" text-anchor="middle">Vocabulary size (log)</text>
+              <text x="46" y="146" fill="#5C6773" font-size="8" font-family="IBM Plex Mono, ui-monospace, monospace" text-anchor="end">0.0</text>
+              <text x="46" y="22" fill="#5C6773" font-size="8" font-family="IBM Plex Mono, ui-monospace, monospace" text-anchor="end">1.0</text>
+            </svg>
+            <p class="mc-legend"><span class="mc-solid">criticized class</span> · <span class="mc-dashed">baseline</span></p>
+            <figcaption>Empty 16:9 frame. Figure from Zenodo https://doi.org/10.5281/zenodo.21071827 — not yet copied.</figcaption>
+          </figure>
+            <p class="mc-cell__link"><a href="./dose-response.html#d-vocab">Open vocabulary dose</a></p>
+          </article>
+          <article class="mc-cell mc-cell--dose">
+            <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>D.batch</span><span>DOSE</span></p>
+            <h3 class="mc-cell__title">Batch-shift dose</h3>
+            <figure class="mc-curve">
+            <svg class="mc-curve__svg" viewBox="0 0 320 180" role="img" aria-label="Empty dose-response axes reserved for Zenodo https://doi.org/10.5281/zenodo.21071827.">
+              <rect width="320" height="180" fill="#F3F5F7"/>
+              <line x1="52" y1="18" x2="52" y2="142" stroke="#1B2430" stroke-width="1"/>
+              <line x1="52" y1="142" x2="300" y2="142" stroke="#1B2430" stroke-width="1"/>
+              <text x="14" y="88" fill="#5C6773" font-size="9" font-family="IBM Plex Mono, ui-monospace, monospace" transform="rotate(-90 14 88)">Performance (AUROC)</text>
+              <text x="176" y="168" fill="#5C6773" font-size="9" font-family="IBM Plex Mono, ui-monospace, monospace" text-anchor="middle">Shift magnitude (log)</text>
+              <text x="46" y="146" fill="#5C6773" font-size="8" font-family="IBM Plex Mono, ui-monospace, monospace" text-anchor="end">0.0</text>
+              <text x="46" y="22" fill="#5C6773" font-size="8" font-family="IBM Plex Mono, ui-monospace, monospace" text-anchor="end">1.0</text>
+            </svg>
+            <p class="mc-legend"><span class="mc-solid">criticized class</span> · <span class="mc-dashed">baseline</span></p>
+            <figcaption>Empty 16:9 frame. Figure from Zenodo https://doi.org/10.5281/zenodo.21071827 — not yet copied.</figcaption>
+          </figure>
+            <p class="mc-cell__link"><a href="./dose-response.html#d-batch">Open batch-shift dose</a></p>
+          </article>
+          <article class="mc-cell mc-cell--dose">
+            <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>D.spatial</span><span>DOSE</span></p>
+            <h3 class="mc-cell__title">Spatial-aggregation dose</h3>
+            <p class="mc-cell__body">Protocol mechanism cell: smooth over k neighbours. Not finding 3.</p>
+            <figure class="mc-curve">
+            <svg class="mc-curve__svg" viewBox="0 0 320 180" role="img" aria-label="Empty dose-response axes reserved for Zenodo https://doi.org/10.5281/zenodo.21071827.">
+              <rect width="320" height="180" fill="#F3F5F7"/>
+              <line x1="52" y1="18" x2="52" y2="142" stroke="#1B2430" stroke-width="1"/>
+              <line x1="52" y1="142" x2="300" y2="142" stroke="#1B2430" stroke-width="1"/>
+              <text x="14" y="88" fill="#5C6773" font-size="9" font-family="IBM Plex Mono, ui-monospace, monospace" transform="rotate(-90 14 88)">Performance (AUROC)</text>
+              <text x="176" y="168" fill="#5C6773" font-size="9" font-family="IBM Plex Mono, ui-monospace, monospace" text-anchor="middle">Spots aggregated (log)</text>
+              <text x="46" y="146" fill="#5C6773" font-size="8" font-family="IBM Plex Mono, ui-monospace, monospace" text-anchor="end">0.0</text>
+              <text x="46" y="22" fill="#5C6773" font-size="8" font-family="IBM Plex Mono, ui-monospace, monospace" text-anchor="end">1.0</text>
+            </svg>
+            <p class="mc-legend"><span class="mc-solid">criticized class</span> · <span class="mc-dashed">baseline</span></p>
+            <figcaption>Empty 16:9 frame. Figure from Zenodo https://doi.org/10.5281/zenodo.21071827 — not yet copied.</figcaption>
+          </figure>
+            <p class="mc-cell__link"><a href="./dose-response.html#d-spatial">Open spatial-aggregation dose</a></p>
+          </article>
+        </div>
+      </section>
+      <section class="mc-resource-strip" aria-label="Resources">
+        <article class="mc-cell mc-cell--resource">
+          <p class="mc-cell__mark" aria-hidden="true">&lt;/&gt;</p>
+          <h3 class="mc-cell__title">Code</h3>
+          <p class="mc-cell__body"><a href="https://github.com/PeterPonyu/frozen-fm-eval" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+        </article>
+        <article class="mc-cell mc-cell--resource">
+          <p class="mc-cell__mark" aria-hidden="true">P</p>
+          <h3 class="mc-cell__title">Protocol</h3>
+          <p class="mc-cell__body"><a href="https://github.com/PeterPonyu/frozen-fm-eval/blob/main/PROTOCOL.md" target="_blank" rel="noopener noreferrer">PROTOCOL.md</a></p>
+        </article>
+        <article class="mc-cell mc-cell--resource">
+          <p class="mc-cell__mark" aria-hidden="true">Z</p>
+          <h3 class="mc-cell__title">Zenodo</h3>
+          <p class="mc-cell__body"><a href="https://doi.org/10.5281/zenodo.21071827" target="_blank" rel="noopener noreferrer">Version DOI</a></p>
+        </article>
+        <article class="mc-cell mc-cell--resource">
+          <p class="mc-cell__mark" aria-hidden="true">iD</p>
+          <h3 class="mc-cell__title">ORCID</h3>
+          <p class="mc-cell__body"><a href="https://orcid.org/0009-0001-8329-0108" target="_blank" rel="noopener noreferrer">Zeyu Fu</a></p>
+        </article>
+        <article class="mc-cell mc-cell--resource">
+          <p class="mc-cell__mark" aria-hidden="true">L</p>
+          <h3 class="mc-cell__title">Licenses</h3>
+          <p class="mc-cell__body"><a href="https://github.com/PeterPonyu/frozen-fm-eval/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT</a> · <a href="https://github.com/PeterPonyu/frozen-fm-eval/blob/main/LICENSE-docs" target="_blank" rel="noopener noreferrer">CC-BY-4.0</a></p>
+        </article>
+        <article class="mc-cell mc-cell--resource">
+          <p class="mc-cell__mark" aria-hidden="true">C</p>
+          <h3 class="mc-cell__title">Citation</h3>
+          <p class="mc-cell__body"><a href="./resources.html#cite">Copy-ready cite</a></p>
+        </article>
+      </section>
+
+    </main>
+    <footer class="mc-footer">
+      <p>Monocells is the visual language of this site. The scientific object is Frozen-FM-Eval.</p>
+      <p>Code: <a href="https://github.com/PeterPonyu/frozen-fm-eval" target="_blank" rel="noopener noreferrer">https://github.com/PeterPonyu/frozen-fm-eval</a>. Protocol: <a href="https://github.com/PeterPonyu/frozen-fm-eval/blob/main/PROTOCOL.md" target="_blank" rel="noopener noreferrer">https://github.com/PeterPonyu/frozen-fm-eval/blob/main/PROTOCOL.md</a>.</p>
+      <p>MIT: <a href="https://github.com/PeterPonyu/frozen-fm-eval/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">https://github.com/PeterPonyu/frozen-fm-eval/blob/main/LICENSE</a>. CC-BY-4.0: <a href="https://github.com/PeterPonyu/frozen-fm-eval/blob/main/LICENSE-docs" target="_blank" rel="noopener noreferrer">https://github.com/PeterPonyu/frozen-fm-eval/blob/main/LICENSE-docs</a>. Citation file: <a href="https://github.com/PeterPonyu/frozen-fm-eval/blob/main/CITATION.cff" target="_blank" rel="noopener noreferrer">https://github.com/PeterPonyu/frozen-fm-eval/blob/main/CITATION.cff</a>.</p>
+      <p>Figures and audit outputs: Zenodo concept <a href="https://doi.org/10.5281/zenodo.21071826" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.21071826</a>; version <a href="https://doi.org/10.5281/zenodo.21071827" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.21071827</a>.</p>
+    </footer>
+  </div>
+</body>
+</html>

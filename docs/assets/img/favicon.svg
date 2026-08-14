@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" role="img" aria-label="Monocells grid mark">
+  <rect width="16" height="16" fill="#F3F5F7"/>
+  <g fill="none" stroke="#C5D0D8" stroke-width="1">
+    <rect x="1.5" y="1.5" width="3" height="3"/>
+    <rect x="4.5" y="1.5" width="3" height="3"/>
+    <rect x="7.5" y="1.5" width="3" height="3"/>
+    <rect x="10.5" y="1.5" width="3" height="3"/>
+    <rect x="1.5" y="4.5" width="3" height="3"/>
+    <rect x="4.5" y="4.5" width="3" height="3"/>
+    <rect x="7.5" y="4.5" width="3" height="3"/>
+    <rect x="10.5" y="4.5" width="3" height="3"/>
+    <rect x="1.5" y="7.5" width="3" height="3"/>
+    <rect x="4.5" y="7.5" width="3" height="3"/>
+    <rect x="7.5" y="7.5" width="3" height="3"/>
+    <rect x="10.5" y="7.5" width="3" height="3"/>
+    <rect x="1.5" y="10.5" width="3" height="3"/>
+    <rect x="4.5" y="10.5" width="3" height="3"/>
+    <rect x="7.5" y="10.5" width="3" height="3"/>
+    <rect x="10.5" y="10.5" width="3" height="3"/>
+  </g>
+  <rect x="8" y="8" width="2" height="2" fill="#0F6F6A"/>
+</svg>

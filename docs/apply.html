@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frozen-FM-Eval — Apply · Monocells</title>
+  <meta name="description" content="A leakage-controlled, calibration-aware evaluation protocol for frozen foundation-model embeddings, stress-tested on single-cell genomics — an audit in place of a leaderboard.">
+  <meta property="og:title" content="Frozen-FM-Eval">
+  <meta property="og:description" content="A leakage-controlled, calibration-aware evaluation protocol for frozen foundation-model embeddings, stress-tested on single-cell genomics — an audit in place of a leaderboard.">
+  <link rel="canonical" href="https://peterponyu.github.io/frozen-fm-eval/apply.html">
+  <link rel="icon" href="./assets/img/favicon.svg">
+  <link rel="stylesheet" href="./assets/css/monocells.css">
+</head>
+<body>
+  <a class="mc-skip" href="#main">Skip to main content</a>
+  <div class="mc-wrap">
+    <header class="mc-masthead">
+      <div class="mc-masthead__row">
+        <p class="mc-wordmark"><a href="./index.html">Frozen-FM-Eval</a></p>
+        <p class="mc-status" role="status">PeerJ Computer Science · under review</p>
+      </div>
+      <p class="mc-claim">A leakage-controlled, calibration-aware evaluation protocol for frozen foundation-model embeddings, stress-tested on single-cell genomics — an audit in place of a leaderboard.</p>
+      <p class="mc-system">displayed in Monocells</p>
+      <nav class="mc-nav" aria-label="Primary">
+        <ul class="mc-nav-desktop">
+        <li><a href="./index.html">Overview</a></li>
+        <li><a href="./findings.html">Findings</a></li>
+        <li><a href="./protocol.html">Protocol</a></li>
+        <li><a href="./dose-response.html">Dose–response</a></li>
+        <li><a href="./apply.html" aria-current="page">Apply</a></li>
+        <li><a href="./resources.html">Resources</a></li>
+        </ul>
+        <details class="mc-nav-menu">
+          <summary>Menu</summary>
+          <ul>
+        <li><a href="./index.html">Overview</a></li>
+        <li><a href="./findings.html">Findings</a></li>
+        <li><a href="./protocol.html">Protocol</a></li>
+        <li><a href="./dose-response.html">Dose–response</a></li>
+        <li><a href="./apply.html" aria-current="page">Apply</a></li>
+        <li><a href="./resources.html">Resources</a></li>
+          </ul>
+        </details>
+      </nav>
+    </header>
+    <main id="main">
+      <h1 class="mc-display">Frozen-FM-Eval — Apply</h1>
+
+      <section class="mc-monolayer">
+        <article class="mc-cell" id="recipe">
+          <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>RECIPE</span><span>APPLY</span></p>
+          <h2 class="mc-cell__title">Five-step recipe for a new frozen-embedding setting</h2>
+          <ol>
+            <li>Name the label-generating process. If ground truth is derived in a space a baseline occupies, add the non-linear probe and a reference-free structure metric.</li>
+            <li>Measure the tokenizer or preprocessing coverage that varies across datasets and report quality against it.</li>
+            <li>Pre-declare an equivalence margin and use TOST instead of reading equivalence off a non-significant test.</li>
+            <li>Pick the deployment shift axis and report conformal coverage, ECE, and selective abstention under that shift.</li>
+            <li>For every rank you are tempted to report, build a dose–response on the manipulable driver and place the criticized method on the curve.</li>
+          </ol>
+          <p class="mc-cell__body">The deliverable is the audit, not the verdict: a frozen embedding is characterised by where on each curve it sits and why.</p>
+        </article>
+      </section>
+
+    </main>
+    <footer class="mc-footer">
+      <p>Monocells is the visual language of this site. The scientific object is Frozen-FM-Eval.</p>
+      <p>Code: <a href="https://github.com/PeterPonyu/frozen-fm-eval" target="_blank" rel="noopener noreferrer">https://github.com/PeterPonyu/frozen-fm-eval</a>. Protocol: <a href="https://github.com/PeterPonyu/frozen-fm-eval/blob/main/PROTOCOL.md" target="_blank" rel="noopener noreferrer">https://github.com/PeterPonyu/frozen-fm-eval/blob/main/PROTOCOL.md</a>.</p>
+      <p>MIT: <a href="https://github.com/PeterPonyu/frozen-fm-eval/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">https://github.com/PeterPonyu/frozen-fm-eval/blob/main/LICENSE</a>. CC-BY-4.0: <a href="https://github.com/PeterPonyu/frozen-fm-eval/blob/main/LICENSE-docs" target="_blank" rel="noopener noreferrer">https://github.com/PeterPonyu/frozen-fm-eval/blob/main/LICENSE-docs</a>. Citation file: <a href="https://github.com/PeterPonyu/frozen-fm-eval/blob/main/CITATION.cff" target="_blank" rel="noopener noreferrer">https://github.com/PeterPonyu/frozen-fm-eval/blob/main/CITATION.cff</a>.</p>
+      <p>Figures and audit outputs: Zenodo concept <a href="https://doi.org/10.5281/zenodo.21071826" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.21071826</a>; version <a href="https://doi.org/10.5281/zenodo.21071827" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.21071827</a>.</p>
+    </footer>
+  </div>
+</body>
+</html>

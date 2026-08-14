@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frozen-FM-Eval — Findings · Monocells</title>
+  <meta name="description" content="A leakage-controlled, calibration-aware evaluation protocol for frozen foundation-model embeddings, stress-tested on single-cell genomics — an audit in place of a leaderboard.">
+  <meta property="og:title" content="Frozen-FM-Eval">
+  <meta property="og:description" content="A leakage-controlled, calibration-aware evaluation protocol for frozen foundation-model embeddings, stress-tested on single-cell genomics — an audit in place of a leaderboard.">
+  <link rel="canonical" href="https://peterponyu.github.io/frozen-fm-eval/findings.html">
+  <link rel="icon" href="./assets/img/favicon.svg">
+  <link rel="stylesheet" href="./assets/css/monocells.css">
+</head>
+<body>
+  <a class="mc-skip" href="#main">Skip to main content</a>
+  <div class="mc-wrap">
+    <header class="mc-masthead">
+      <div class="mc-masthead__row">
+        <p class="mc-wordmark"><a href="./index.html">Frozen-FM-Eval</a></p>
+        <p class="mc-status" role="status">PeerJ Computer Science · under review</p>
+      </div>
+      <p class="mc-claim">A leakage-controlled, calibration-aware evaluation protocol for frozen foundation-model embeddings, stress-tested on single-cell genomics — an audit in place of a leaderboard.</p>
+      <p class="mc-system">displayed in Monocells</p>
+      <nav class="mc-nav" aria-label="Primary">
+        <ul class="mc-nav-desktop">
+        <li><a href="./index.html">Overview</a></li>
+        <li><a href="./findings.html" aria-current="page">Findings</a></li>
+        <li><a href="./protocol.html">Protocol</a></li>
+        <li><a href="./dose-response.html">Dose–response</a></li>
+        <li><a href="./apply.html">Apply</a></li>
+        <li><a href="./resources.html">Resources</a></li>
+        </ul>
+        <details class="mc-nav-menu">
+          <summary>Menu</summary>
+          <ul>
+        <li><a href="./index.html">Overview</a></li>
+        <li><a href="./findings.html" aria-current="page">Findings</a></li>
+        <li><a href="./protocol.html">Protocol</a></li>
+        <li><a href="./dose-response.html">Dose–response</a></li>
+        <li><a href="./apply.html">Apply</a></li>
+        <li><a href="./resources.html">Resources</a></li>
+          </ul>
+        </details>
+      </nav>
+    </header>
+    <main id="main">
+      <h1 class="mc-display">Frozen-FM-Eval — Findings</h1>
+
+      <section class="mc-monolayer">
+        <article class="mc-cell" id="f1">
+          <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>F1</span><span>FINDING</span></p>
+          <h2 class="mc-cell__title">Vocabulary-matched atlases: frozen scFMs neither beat nor trail simple baselines (PCA/HVG/scVI)</h2>
+          <p class="mc-cell__body">On vocabulary-matched atlases, frozen scFMs neither beat nor trail simple baselines. The mapped mechanism is vocabulary coverage as a measured variable, not a rank table.</p>
+          <p class="mc-cell__link"><a href="./dose-response.html#d-vocab">Evidence on the vocabulary dose page</a></p>
+        </article>
+        <article class="mc-cell" id="f2">
+          <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>F2</span><span>FINDING</span></p>
+          <h2 class="mc-cell__title">Cross-batch calibration collapse is a general exchangeability failure, not an FM defect (20/24 atlases; scATAC is flat)</h2>
+          <p class="mc-cell__body">Coverage and ECE degrade under batch shift for classical baselines as well. The mapped mechanism is batch-shift dose, not an FM-only defect.</p>
+          <p class="mc-cell__link"><a href="./dose-response.html#d-batch">Evidence on the batch-shift dose page</a></p>
+        </article>
+        <article class="mc-cell" id="f3">
+          <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>F3</span><span>FINDING</span></p>
+          <h2 class="mc-cell__title">Who wins is set by task and metric, not scale or architecture (Geneformer 104M→316M buys nothing)</h2>
+          <p class="mc-cell__body">Scale does not settle the comparison. The empty readout below is a task × metric versus scale skeleton, not a neighbourhood-aggregation figure.</p>
+          <table class="mc-table">
+            <caption>Task and metric versus model scale (skeleton; numbers from DESIGN cell titles only)</caption>
+            <thead>
+              <tr><th>Readout</th><th>Smaller scale</th><th>Larger scale</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Task / metric</td><td>to be filled from Zenodo</td><td>to be filled from Zenodo</td></tr>
+              <tr><td>Geneformer 104M → 316M</td><td colspan="2">scale does not buy the win</td></tr>
+            </tbody>
+          </table>
+        </article>
+      </section>
+
+    </main>
+    <footer class="mc-footer">
+      <p>Monocells is the visual language of this site. The scientific object is Frozen-FM-Eval.</p>
+      <p>Code: <a href="https://github.com/PeterPonyu/frozen-fm-eval" target="_blank" rel="noopener noreferrer">https://github.com/PeterPonyu/frozen-fm-eval</a>. Protocol: <a href="https://github.com/PeterPonyu/frozen-fm-eval/blob/main/PROTOCOL.md" target="_blank" rel="noopener noreferrer">https://github.com/PeterPonyu/frozen-fm-eval/blob/main/PROTOCOL.md</a>.</p>
+      <p>MIT: <a href="https://github.com/PeterPonyu/frozen-fm-eval/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">https://github.com/PeterPonyu/frozen-fm-eval/blob/main/LICENSE</a>. CC-BY-4.0: <a href="https://github.com/PeterPonyu/frozen-fm-eval/blob/main/LICENSE-docs" target="_blank" rel="noopener noreferrer">https://github.com/PeterPonyu/frozen-fm-eval/blob/main/LICENSE-docs</a>. Citation file: <a href="https://github.com/PeterPonyu/frozen-fm-eval/blob/main/CITATION.cff" target="_blank" rel="noopener noreferrer">https://github.com/PeterPonyu/frozen-fm-eval/blob/main/CITATION.cff</a>.</p>
+      <p>Figures and audit outputs: Zenodo concept <a href="https://doi.org/10.5281/zenodo.21071826" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.21071826</a>; version <a href="https://doi.org/10.5281/zenodo.21071827" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.21071827</a>.</p>
+    </footer>
+  </div>
+</body>
+</html>
