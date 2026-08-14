@@ -56,19 +56,20 @@
               <rect width="320" height="180" fill="#F3F5F7"/>
               <line x1="52" y1="18" x2="52" y2="142" stroke="#1B2430" stroke-width="1"/>
               <line x1="52" y1="142" x2="300" y2="142" stroke="#1B2430" stroke-width="1"/>
-              <text x="14" y="88" fill="#5C6773" font-size="9" font-family="IBM Plex Mono, ui-monospace, monospace" transform="rotate(-90 14 88)">Performance (AUROC)</text>
-              <text x="176" y="168" fill="#5C6773" font-size="9" font-family="IBM Plex Mono, ui-monospace, monospace" text-anchor="middle">Vocabulary size (log)</text>
-              <text x="46" y="146" fill="#5C6773" font-size="8" font-family="IBM Plex Mono, ui-monospace, monospace" text-anchor="end">0.0</text>
-              <text x="46" y="22" fill="#5C6773" font-size="8" font-family="IBM Plex Mono, ui-monospace, monospace" text-anchor="end">1.0</text>
+              <text x="14" y="88" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" transform="rotate(-90 14 88)">Performance (AUROC)</text>
+              <text x="176" y="168" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">Vocabulary size (log)</text>
+              <text x="46" y="146" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">0.0</text>
+              <text x="46" y="22" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">1.0</text>
             </svg>
             <p class="mc-legend"><span class="mc-solid">criticized class</span> · <span class="mc-dashed">baseline</span></p>
             <figcaption>Empty 16:9 frame. Figure from Zenodo https://doi.org/10.5281/zenodo.21071827 — not yet copied.</figcaption>
           </figure>
           <ul class="mc-scripts">
-            <li>vocab_dose_response.py</li>
-            <li>vocab_ablation.py</li>
-            <li>vocab_ablation_scgpt.py</li>
+            <li>Vocabulary-coverage sweep across atlases</li>
+            <li>Causal in-atlas ablation (unreadable genes)</li>
+            <li>scGPT vocabulary ablation</li>
           </ul>
+          <p class="mc-cell__link"><a href="https://doi.org/10.5281/zenodo.21071827" target="_blank" rel="noopener noreferrer">Vocabulary-dose outputs on Zenodo</a></p>
         </article>
         <article class="mc-cell mc-cell--dose" id="d-batch">
           <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>D.batch</span><span>DOSE</span></p>
@@ -79,41 +80,43 @@
               <rect width="320" height="180" fill="#F3F5F7"/>
               <line x1="52" y1="18" x2="52" y2="142" stroke="#1B2430" stroke-width="1"/>
               <line x1="52" y1="142" x2="300" y2="142" stroke="#1B2430" stroke-width="1"/>
-              <text x="14" y="88" fill="#5C6773" font-size="9" font-family="IBM Plex Mono, ui-monospace, monospace" transform="rotate(-90 14 88)">Performance (AUROC)</text>
-              <text x="176" y="168" fill="#5C6773" font-size="9" font-family="IBM Plex Mono, ui-monospace, monospace" text-anchor="middle">Shift magnitude (log)</text>
-              <text x="46" y="146" fill="#5C6773" font-size="8" font-family="IBM Plex Mono, ui-monospace, monospace" text-anchor="end">0.0</text>
-              <text x="46" y="22" fill="#5C6773" font-size="8" font-family="IBM Plex Mono, ui-monospace, monospace" text-anchor="end">1.0</text>
+              <text x="14" y="88" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" transform="rotate(-90 14 88)">Performance (AUROC)</text>
+              <text x="176" y="168" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">Shift magnitude (log)</text>
+              <text x="46" y="146" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">0.0</text>
+              <text x="46" y="22" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">1.0</text>
             </svg>
             <p class="mc-legend"><span class="mc-solid">criticized class</span> · <span class="mc-dashed">baseline</span></p>
             <figcaption>Empty 16:9 frame. Figure from Zenodo https://doi.org/10.5281/zenodo.21071827 — not yet copied.</figcaption>
           </figure>
           <ul class="mc-scripts">
-            <li>batch_shift_dose_response.py</li>
-            <li>batch_shift_fm_probe.py</li>
-            <li>b2_fm_shift_intrinsic.py</li>
+            <li>Coverage and ECE versus measured batch-shift strength</li>
+            <li>Frozen-FM probe under shift</li>
+            <li>Intrinsic held-out-batch discriminability</li>
           </ul>
+          <p class="mc-cell__link"><a href="https://doi.org/10.5281/zenodo.21071827" target="_blank" rel="noopener noreferrer">Batch-shift outputs on Zenodo</a></p>
         </article>
         <article class="mc-cell mc-cell--dose" id="d-spatial">
           <p class="mc-cell__chrome"><span><span class="mc-nucleus"></span>D.spatial</span><span>DOSE</span></p>
           <h2 class="mc-cell__title">Spatial-aggregation dose</h2>
-          <p class="mc-cell__body">Smooth per-cell representations over k spatial neighbours. A spatial-FM gap closes once a per-cell baseline is given the one operation it lacked. This cell is the protocol mechanism, not paper finding 3.</p>
+          <p class="mc-cell__body">Smooth per-cell representations over k spatial neighbours. A spatial-FM gap closes once a per-cell baseline is given the one operation it lacked. This cell is the protocol mechanism, not finding 3.</p>
           <figure class="mc-curve">
             <svg class="mc-curve__svg" viewBox="0 0 320 180" role="img" aria-label="Empty dose-response axes reserved for Zenodo https://doi.org/10.5281/zenodo.21071827.">
               <rect width="320" height="180" fill="#F3F5F7"/>
               <line x1="52" y1="18" x2="52" y2="142" stroke="#1B2430" stroke-width="1"/>
               <line x1="52" y1="142" x2="300" y2="142" stroke="#1B2430" stroke-width="1"/>
-              <text x="14" y="88" fill="#5C6773" font-size="9" font-family="IBM Plex Mono, ui-monospace, monospace" transform="rotate(-90 14 88)">Performance (AUROC)</text>
-              <text x="176" y="168" fill="#5C6773" font-size="9" font-family="IBM Plex Mono, ui-monospace, monospace" text-anchor="middle">Spots aggregated (log)</text>
-              <text x="46" y="146" fill="#5C6773" font-size="8" font-family="IBM Plex Mono, ui-monospace, monospace" text-anchor="end">0.0</text>
-              <text x="46" y="22" fill="#5C6773" font-size="8" font-family="IBM Plex Mono, ui-monospace, monospace" text-anchor="end">1.0</text>
+              <text x="14" y="88" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" transform="rotate(-90 14 88)">Performance (AUROC)</text>
+              <text x="176" y="168" fill="#5C6773" font-size="9" font-family="IBM Plex Mono" text-anchor="middle">Spots aggregated (log)</text>
+              <text x="46" y="146" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">0.0</text>
+              <text x="46" y="22" fill="#5C6773" font-size="8" font-family="IBM Plex Mono" text-anchor="end">1.0</text>
             </svg>
             <p class="mc-legend"><span class="mc-solid">criticized class</span> · <span class="mc-dashed">baseline</span></p>
             <figcaption>Empty 16:9 frame. Figure from Zenodo https://doi.org/10.5281/zenodo.21071827 — not yet copied.</figcaption>
           </figure>
           <ul class="mc-scripts">
-            <li>spatial_dose_response.py</li>
-            <li>spatial_dose_foldblocked.py</li>
+            <li>Spatial-neighbour aggregation dose</li>
+            <li>Fold-blocked spatial-aggregation dose</li>
           </ul>
+          <p class="mc-cell__link"><a href="https://doi.org/10.5281/zenodo.21071827" target="_blank" rel="noopener noreferrer">Spatial-dose outputs on Zenodo</a></p>
         </article>
       </section>
 
