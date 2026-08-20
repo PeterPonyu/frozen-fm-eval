@@ -24,6 +24,9 @@ __pycache__/
 .venv/
 # Node
 node_modules/
+# Manuscript / venue-submission trees stay on disk locally, not on the public remote
+paper/
+
 # Logs
 *.log
 
